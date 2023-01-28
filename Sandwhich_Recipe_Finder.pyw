@@ -32,8 +32,53 @@ def element_wise_addition(list_one, list_two):
             resulting_list.append(list_one[i]+list_two[i])
     return resulting_list
 
-number = -99999
-sweet = 0
+def build_sandwich(one, two, three, four, five, six, seven, eight, nine, ten):
+    recipe_list_of_stuff = []
+    if ((one == '') or (one == 'null') or (one == 'Null')):
+        pass
+    else:
+        recipe_list_of_stuff.append(one)
+    if ((two == '') or (two == 'null') or (two == 'Null')):
+        pass
+    else:
+        recipe_list_of_stuff.append(two)
+    if ((three == '') or (three == 'null') or (three == 'Null')):
+        pass
+    else:
+        recipe_list_of_stuff.append(three)
+    if ((four == '') or (four == 'null') or (four == 'Null')):
+        pass
+    else:
+        recipe_list_of_stuff.append(four)
+    if ((five == '') or (five == 'null') or (five == 'Null')):
+        pass
+    else:
+        recipe_list_of_stuff.append(five)
+    if ((six == '') or (six == 'null') or (six == 'Null')):
+        pass
+    else:
+        recipe_list_of_stuff.append(six)
+    if ((seven == '') or (seven == 'null') or (seven == 'Null')):
+        pass
+    else:
+        recipe_list_of_stuff.append(seven)
+    if ((eight == '') or (eight == 'null') or (eight == 'Null')):
+        pass
+    else:
+        recipe_list_of_stuff.append(eight)
+    if ((nine == '') or (nine == 'null') or (nine == 'Null')):
+        pass
+    else:
+        recipe_list_of_stuff.append(nine)
+    if ((ten == '') or (ten == 'null') or (ten == 'Null')):
+        pass
+    else:
+        recipe_list_of_stuff.append(ten)
+    recipe_list_of_stuff.sort()
+    return recipe_list_of_stuff
+
+number = 9
+Sweet = 0
 Spicy = 0
 Bitter = 0
 Sour = 0
@@ -68,8 +113,14 @@ fairy = 0
 ghost = 0
 
 herba_mistica_type_list=element_wise_addition([250],[fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy])
-print(herba_mistica_type_list)
-exit(0)
+#print(herba_mistica_type_list)
+#exit(0)
+
+#lists of stuff
+flavor_names_list = ['Sweet', 'Spicy', 'Bitter', 'Sour', 'Salty']
+powers_names_list = ['egg', 'catching', 'exp', 'item', 'raid', 'title', 'sparkling', 'humungo', 'teensy', 'encounter']
+types_names_list = ['fire', 'grass', 'water', 'electric', 'normal', 'ground', 'rock', 'psychic', 'ghost', 'flying', 'ice', 'bug', 'fighting', 'poison', 'dragon', 'dark', 'steel', 'fairy']
+
 
 
 #List of ingredients
@@ -334,7 +385,7 @@ ingredients = [
         'pieces': 3
         },
     ]
-exit(0)
+#exit(0)
 #List of ingredients
 seasonings = [
 ##    {
@@ -347,7 +398,7 @@ seasonings = [
         'seasoning': 'null',
         'flavor': [Sweet, Spicy, Bitter, Sour, Salty],
         'powers': [egg, catching, exp, item, raid, 0, 0, humungo, teensy, encounter],
-        'types': herba_mistica_type_list
+        'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy],
         },
     {
         'seasoning': 'Sweet Herba Mystica',
@@ -483,6 +534,52 @@ seasonings = [
         },
     ]
 
+def get_item_type(something):
+    for dictionary in ingredients:
+        if dictionary.get('ingredient') == something:
+            return 'an ingredient'
+    for dictionary in seasonings:
+        if dictionary.get('seasoning') == something:
+            return 'a seasoning'
+
+
+def determine_powers(a_list):
+    total_flavor = [Sweet, Spicy, Bitter, Sour, Salty]
+    total_powers = [egg, catching, exp, item, raid, 0, 0, humungo, teensy, encounter]
+    total_types = [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy]
+
+    for item in a_list:
+        item_type = get_item_type(item)
+        if item_type == 'an ingredient':
+            for dictionary in ingredients:
+                if dictionary.get('ingredient') == item:
+                    flavor_profile = dictionary.get('flavor')
+                    power_profile = dictionary.get('powers')
+                    type_profile = dictionary.get('types')
+                    pieces = dictionary.get('pieces')
+                    break
+            
+        elif item_type == 'a seasoning':
+            pieces = 1
+            for dictionary in seasonings:
+                if dictionary.get('seasoning') == item:
+                    flavor_profile = dictionary.get('flavor')
+                    power_profile = dictionary.get('powers')
+                    type_profile = dictionary.get('types')
+                    break
+                
+        flavor_profile = element_wise_addition(pieces, flavor_profile)
+        power_profile = element_wise_addition(pieces, power_profile)
+        type_profile = element_wise_addition(pieces, type_profile)
+        
+        total_flavor = element_wise_addition(total_flavor, flavor_profile)
+        total_powers = element_wise_addition(total_powers, power_profile)
+        total_types = element_wise_addition(total_types, type_profile)
+
+    max_flavor_value = max(total_flavor)
+    
+
+
 in_game_sandwhiche_ingredient_combinations = [
     ['Ham', 'Butter'],
     ['Ham', 'Butter', 'Bitter Herba Mystica'],
@@ -507,13 +604,14 @@ in_game_sandwhiche_ingredient_combinations = [
     ['Pickle', 'Watercress', 'Olive Oil'],
     ['Pickle', 'Watercress', 'Basil', 'Olive Oil'],
     ['Pickle', 'Watercress', 'Basil', 'Olive Oil', 'Sour Herba Mystica'],
-    ['Chesse', 'Marmalade'],
-    ['Chesse', 'Marmalade', 'Butter'],
-    ['Chesse', 'Marmalade', 'Butter', 'Cream Cheese'],
-    ['Chesse', 'Marmalade', 'Butter', 'Cream Cheese', 'Salty Herba Mystica'],
+    ['Cheese', 'Marmalade'],
+    ['Cheese', 'Marmalade', 'Butter'],
+    ['Cheese', 'Marmalade', 'Butter', 'Cream Cheese'],
+    ['Cheese', 'Marmalade', 'Butter', 'Cream Cheese', 'Salty Herba Mystica'],
     ['Herbed Sausage', 'Ketchup'],
     ['Herbed Sausage', 'Ketchup', 'Mustard'],
     ['Herbed Sausage', 'Lettuce', 'Ketchup', 'Mustard'],
+    ['Herbed Sausage', 'Lettuce', 'Ketchup', 'Mustard', 'Bitter Herba Mystica'],
     ['Rice', 'Curry Powder', 'Mayonnaise'],
     ['Rice', 'Jalapeno', 'Curry Powder', 'Mayonnaise'],
     ['Rice', 'Jalapeno', 'Tomato', 'Curry Powder', 'Mayonnaise'],
@@ -522,10 +620,10 @@ in_game_sandwhiche_ingredient_combinations = [
     ['Apple', 'Apple', 'Kiwi', 'Whipped Cream', 'Yogurt'],
     ['Apple', 'Apple', 'Kiwi', 'Strawberry', 'Whipped Cream', 'Yogurt'],
     ['Apple', 'Apple', 'Kiwi', 'Strawberry', 'Whipped Cream', 'Yogurt', 'Sweet Herba Mystica'],
-    ['Klwaf Stick', 'Avocado', 'Maramalade'],
-    ['Klwaf Stick', 'Avocado', 'Pineapple', 'Maramalade'],
-    ['Klwaf Stick', 'Avocado', 'Pineapple', 'Jalapeno', 'Maramalade'],
-    ['Klwaf Stick', 'Avocado', 'Pineapple', 'Jalapeno', 'Maramalade', 'Sour Herba Mystica'],
+    ['Klawf Stick', 'Avocado', 'Marmalade'],
+    ['Klawf Stick', 'Avocado', 'Pineapple', 'Marmalade'],
+    ['Klawf Stick', 'Avocado', 'Pineapple', 'Jalapeno', 'Marmalade'],
+    ['Klawf Stick', 'Avocado', 'Pineapple', 'Jalapeno', 'Marmalade', 'Sour Herba Mystica'],
     ['Avocado', 'Smoked Fillet', 'Salt'],
     ['Avocado', 'Smoked Fillet', 'Tomato', 'Salt'],
     ['Avocado', 'Smoked Fillet', 'Tomato', 'Lettuce', 'Salt'],
@@ -558,10 +656,10 @@ in_game_sandwhiche_ingredient_combinations = [
     ['Bacon', 'Lettuce', 'Tomato', 'Basil', 'Mayonnaise', 'Mustard'],
     ['Bacon', 'Lettuce', 'Tomato', 'Basil', 'Cheese', 'Mayonnaise', 'Mustard'],
     ['Bacon', 'Lettuce', 'Tomato', 'Basil', 'Cheese', 'Mayonnaise', 'Mustard', 'Sweet Herba Mystica'],
-    ['Fish Fillet', 'Potato Salad', 'Mayonnaise', 'Ketchup'],
-    ['Fish Fillet', 'Potato Salad', 'Lettuce', 'Mayonnaise', 'Ketchup'],
-    ['Fish Fillet', 'Potato Salad', 'Lettuce', 'Mayonnaise', 'Ketchup', 'Horseradish'],
-    ['Fish Fillet', 'Potato Salad', 'Lettuce', 'Mayonnaise', 'Ketchup', 'Horseradish', 'Spicy Herba Mystica'],
+    ['Fried Fillet', 'Potato Salad', 'Mayonnaise', 'Ketchup'],
+    ['Fried Fillet', 'Potato Salad', 'Lettuce', 'Mayonnaise', 'Ketchup'],
+    ['Fried Fillet', 'Potato Salad', 'Lettuce', 'Mayonnaise', 'Ketchup', 'Horseradish'],
+    ['Fried Fillet', 'Potato Salad', 'Lettuce', 'Mayonnaise', 'Ketchup', 'Horseradish', 'Spicy Herba Mystica'],
     ['Pickle', 'Ham', 'Mayonnaise', 'Mustard'],
     ['Pickle', 'Ham', 'Prosciutto', 'Mayonnaise', 'Mustard'],
     ['Pickle', 'Ham', 'Prosciutto', 'Jalapeno', 'Mayonnaise', 'Mustard'],
@@ -586,10 +684,10 @@ in_game_sandwhiche_ingredient_combinations = [
     ['Prosciutto', 'Cherry Tomatoes', 'Smoked Fillet', 'Potato Salad', 'Salt', 'Vinegar'],
     ['Prosciutto', 'Cherry Tomatoes', 'Smoked Fillet', 'Potato Salad', 'Hamburger', 'Salt', 'Vinegar'],
     ['Prosciutto', 'Cherry Tomatoes', 'Smoked Fillet', 'Potato Salad', 'Hamburger', 'Salt', 'Vinegar', 'Bitter Herba Mystica'],
-    ['Klawf', 'Tomato', 'Lettuce', 'Salt', 'Olive Oil'],
-    ['Klawf', 'Tomato', 'Lettuce', 'Salt', 'Olive Oil', 'Wasabi'],
-    ['Klawf', 'Tomato', 'Lettuce', 'Yellow Bell Pepper', 'Salt', 'Olive Oil', 'Wasabi'],
-    ['Klawf', 'Tomato', 'Lettuce', 'Yellow Bell Pepper', 'Salt', 'Olive Oil', 'Wasabi', 'Spicy Herba Mystica'],
+    ['Klawf Stick', 'Tomato', 'Lettuce', 'Salt', 'Olive Oil'],
+    ['Klawf Stick', 'Tomato', 'Lettuce', 'Salt', 'Olive Oil', 'Wasabi'],
+    ['Klawf Stick', 'Tomato', 'Lettuce', 'Yellow Bell Pepper', 'Salt', 'Olive Oil', 'Wasabi'],
+    ['Klawf Stick', 'Tomato', 'Lettuce', 'Yellow Bell Pepper', 'Salt', 'Olive Oil', 'Wasabi', 'Spicy Herba Mystica'],
     ['Banana', 'Apple', 'Cheese', 'Whipped Cream', 'Butter'],
     ['Banana', 'Apple', 'Cheese', 'Whipped Cream', 'Butter', 'Salt'],
     ['Banana', 'Apple', 'Cheese', 'Basil', 'Whipped Cream', 'Butter', 'Salt'],
@@ -610,85 +708,40 @@ in_game_sandwhiche_ingredient_combinations = [
     ['Watercress', 'Onion', 'Yellow Bell Pepper', 'Tomato', 'Cucumber', 'Olive Oil', 'Wasabi'],
     ['Watercress', 'Onion', 'Yellow Bell Pepper', 'Tomato', 'Cucumber', 'Olive Oil', 'Wasabi', 'Mayonnaise'],
     ['Watercress', 'Onion', 'Yellow Bell Pepper', 'Tomato', 'Cucumber', 'Olive Oil', 'Wasabi', 'Mayonnaise', 'Sweet Herba Mystica'],
+    ['Hamburger', 'Tomato', 'Kiwi', 'Pineapple', 'Butter', 'Horseradish'],
+    ['Hamburger', 'Tomato', 'Kiwi', 'Pineapple', 'Avocado', 'Butter', 'Horseradish'],
+    ['Hamburger', 'Tomato', 'Kiwi', 'Pineapple', 'Avocado', 'Cheese', 'Butter', 'Horseradish'],
+    ['Hamburger', 'Tomato', 'Kiwi', 'Pineapple', 'Avocado', 'Cheese', 'Butter', 'Horseradish', 'Bitter Herba Mystica'],
+    ['Smoked Fillet', 'Klawf Stick', 'Watercress', 'Basil', 'Vinegar', 'Olive Oil', 'Salt'],
+    ['Smoked Fillet', 'Klawf Stick', 'Watercress', 'Basil', 'Tofu', 'Vinegar', 'Olive Oil', 'Salt'],
+    ['Smoked Fillet', 'Klawf Stick', 'Watercress', 'Basil', 'Tofu', 'Red Onion', 'Vinegar', 'Olive Oil', 'Salt'],
+    ['Smoked Fillet', 'Klawf Stick', 'Watercress', 'Basil', 'Tofu', 'Red Onion', 'Vinegar', 'Olive Oil', 'Salt', 'Spicy Herba Mystica'],
+    ['Tofu', 'Tofu', 'Rice', 'Lettuce', 'Avocado', 'Wasabi', 'Salt'],
+    ['Tofu', 'Tofu', 'Rice', 'Lettuce', 'Avocado', 'Wasabi', 'Salt', 'Horseradish'],
+    ['Tofu', 'Tofu', 'Rice', 'Lettuce', 'Avocado', 'Watercress', 'Wasabi', 'Salt', 'Horseradish'],
+    ['Tofu', 'Tofu', 'Rice', 'Lettuce', 'Avocado', 'Watercress', 'Wasabi', 'Salt', 'Horseradish', 'Salty Herba Mystica'],
+    ['Noodles', 'Red Bell Pepper', 'Bacon', 'Yellow Bell Pepper', 'Olive Oil', 'Curry Powder', 'Salt'],
+    ['Noodles', 'Red Bell Pepper', 'Bacon', 'Yellow Bell Pepper', 'Jalapeno', 'Olive Oil', 'Curry Powder', 'Salt'],
+    ['Noodles', 'Red Bell Pepper', 'Bacon', 'Yellow Bell Pepper', 'Jalapeno', 'Egg', 'Olive Oil', 'Curry Powder', 'Salt'],
+    ['Noodles', 'Red Bell Pepper', 'Bacon', 'Yellow Bell Pepper', 'Jalapeno', 'Egg', 'Olive Oil', 'Curry Powder', 'Salt', 'Sweet Herba Mystica'],
+    ['Hamburger', 'Noodles', 'Potato Salad', 'Rice', 'Olive Oil', 'Curry Powder', 'Salt'],
+    ['Hamburger', 'Noodles', 'Potato Salad', 'Rice', 'Klawf Stick', 'Olive Oil', 'Curry Powder', 'Salt'],
+    ['Hamburger', 'Noodles', 'Potato Salad', 'Rice', 'Klawf Stick', 'Tofu', 'Olive Oil', 'Curry Powder', 'Salt'],
+    ['Hamburger', 'Noodles', 'Potato Salad', 'Rice', 'Klawf Stick', 'Tofu', 'Olive Oil', 'Curry Powder', 'Salt', 'Bitter Herba Mystica'],
+    ['Rice', 'Smoked Fillet', 'Smoked Fillet', 'Klawf Stick', 'Vinegar', 'Wasabi', 'Salt'],
+    ['Rice', 'Smoked Fillet', 'Smoked Fillet', 'Klawf Stick', 'Watercress', 'Vinegar', 'Wasabi', 'Salt'],
+    ['Rice', 'Smoked Fillet', 'Smoked Fillet', 'Klawf Stick', 'Klawf Stick', 'Watercress', 'Vinegar', 'Wasabi', 'Salt'],
+    ['Rice', 'Smoked Fillet', 'Smoked Fillet', 'Klawf Stick', 'Klawf Stick', 'Watercress', 'Vinegar', 'Wasabi', 'Salt', 'Sour Herba Mystica']
     ]
 
+list_of_powers_found = [] #Might end up with combinations covered in the game.
+                          #I don't give a fuck tho
+list_of_found_recipes = []
+for combo in in_game_sandwhiche_ingredient_combinations:
+    recipe = combo
+    recipe.sort()
+    list_of_found_recipes.append(recipe)
 
-
-def remove_stuff(string):
-    string = str(string)
-    print(string)
-    string = string.replace(">Butter<",'')
-    string = string.replace(">Pepper<",'')
-    string = string.replace(">Jam<",'')
-    string = string.replace(">Yogurt<",'')
-    string = string.replace(">Peanut Butter<",'')
-    string = string.replace(">Olive Oil<",'')
-    string = string.replace(">Wasabi<",'')
-    string = string.replace(">Marmalade<",'')
-    string = string.replace(">Cream Cheese<",'')
-    string = string.replace(">Ketchup<",'')
-    string = string.replace(">Mustard<",'')
-    string = string.replace(">Curry Powder<",'')
-    string = string.replace(">Mayonnaise<",'')
-    string = string.replace(">Whipped Cream<",'')
-    string = string.replace(">Salt<",'')
-    string = string.replace(">Chili Sauce<",'')
-    string = string.replace(">Horseradish<",'')
-    string = string.replace(">Vinegar<",'')
-    string = string.replace(">Bitter Herba Mystica<",'')
-    string = string.replace(">Sweet Herba Mystica<",'')
-    string = string.replace(">Sour Herba Mystica<",'')
-    string = string.replace(">Salty Herba Mystica<",'')
-    string = string.replace(">Spicy Herba Mystica<",'')
-    string = string.replace('/a>','')
-    string = string.replace('<','')
-    string = string.replace('PageElement','')
-    string = string.replace('get_text of','')
-    string = string.replace('>','')
-    string = string.replace('td class="fooinfo" rowspan="2"','')
-    string = string.replace('table','')
-    string = string.replace('tr','')
-    string = string.replace('td','')
-    string = string.replace('a href=','')
-    string = string.replace('"','')
-    string = string.replace('item','')
-    string = string.replace('dex','')
-    string = string.replace('butter','')
-    string = string.replace('.','')
-    string = string.replace('alt','')
-    string = string.replace('height','')
-    string = string.replace('=','')
-    string = string.replace('0','')
-    string = string.replace('1','')
-    string = string.replace('2','')
-    string = string.replace('3','')
-    string = string.replace('4','')
-    string = string.replace('5','')
-    string = string.replace('6','')
-    string = string.replace('7','')
-    string = string.replace('8','')
-    string = string.replace('9','')
-    string = string.replace('loading','')
-    string = string.replace('lazy','')
-    string = string.replace('//','')
-    string = string.replace('sprites','')
-    string = string.replace('sprite','')
-    string = string.replace('png','')
-    string = string.replace('bitterherbamystica','')
-    string = string.replace('shtml','')
-    string = string.replace('img','')
-    string = string.replace('png','')
-    string = string.replace('bound','')
-    string = string.replace('method','')
-    string = string.replace('src','')
-    string = string.replace('//Butter','')
-    string = string.replace('//Bitter Herba Mystica','')
-    string = string.replace("/",'')
-    string = string.replace("/Butter",'')
-    string = string.replace("/Bitter Herba Mystica",'')
-    string = string.replace("    ",',')
-    string = string.strip()
-    return string
 
 #pokemon checker
 def Pokemon():
@@ -702,7 +755,20 @@ def Pokemon():
                                 for ingredient_four_index in range(0, len(ingredients)):
                                     for ingredient_five_index in range(0, len(ingredients)):
                                         for ingredient_six_index in range(0, len(ingredients)):
-                                            pass
+                                            recipe = build_sandwich(ingredient_one_index,
+                                                                    seasoning_one_index,
+                                                                    seasoning_two_index,
+                                                                    seasoning_three_index,
+                                                                    seasoning_four_index,
+                                                                    ingredient_two_index,
+                                                                    ingredient_three_index,
+                                                                    ingredient_four_index,
+                                                                    ingredient_five_index,
+                                                                    ingredient_six_index)
+                                            if recipe in list_of_found_recipes:
+                                                pass
+                                            else:
+                                                the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
     return 11037
 
 
