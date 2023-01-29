@@ -1162,7 +1162,7 @@ def Pokemon():
                                                 combo_of_ingredients_and_seasonings.sort()
 
                                                 if combo_of_ingredients_and_seasonings in list_of_found_recipes:
-                                                    pass
+                                                    print('Combo found already')
                                                 else:
                                                     the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
                                                     recipe_dict = {
@@ -1173,7 +1173,7 @@ def Pokemon():
                                                     update_recipe_dex(recipe_dict)
                                                     list_of_found_recipes.append(combo_of_ingredients_and_seasonings)
                                             else:
-                                                print('combo found already')
+                                                print('Not a valid sandwich')
     return 11037
 
 
