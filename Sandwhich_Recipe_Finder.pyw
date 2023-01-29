@@ -16,12 +16,14 @@ from email.message import EmailMessage
 ##Calculate flavor bonuses for the top flavor or top two flavors in some situations
 ##Assign powers & levels -- if a power is less than 100 its level 1, if a power is less than 280 its level 2, otherwise its level 3. The top power is given the top type, the second power is given the third type, and the third power is given the second type. Idk why it was done this way, ask Game Freak.
 ##Sandwiches with herba mystica (HM) have some additional considerations: one HM always gets you title power. Two HMs always gets you title and sparling power.
-##
+##Title Power and Sparkle Power always are the top type.  The third power is also the top type.
 ##If there's a tie in types, powers, or flavors, they're sorted in in-game order not alphabetical, so Normal will take prioroty over Flying, for instance.
 ################################################################################################################################################################################################################################################################################################################
 
 
 def element_wise_addition(list_one, list_two):
+    print(list_one)
+    print(list_two)
     #both lists must be the same legnth
     resulting_list = []
     if len(list_one) == 1:
@@ -34,47 +36,50 @@ def element_wise_addition(list_one, list_two):
 
 def build_sandwich(one, two, three, four, five, six, seven, eight, nine, ten):
     recipe_list_of_stuff = []
-    if ((one == '') or (one == 'null') or (one == 'Null')):
+    if ((one.get('seasoning', 'not this') == 'null') or (one.get('ingredient', 'not this') == 'null') or (one.get('ingredient', 'not this') == 'Null')):
         pass
     else:
         recipe_list_of_stuff.append(one)
-    if ((two == '') or (two == 'null') or (two == 'Null')):
+    if ((two.get('seasoning', 'not this') == 'null') or (two.get('ingredient', 'not this') == 'null') or (two.get('ingredient', 'not this') == 'Null')):
         pass
     else:
         recipe_list_of_stuff.append(two)
-    if ((three == '') or (three == 'null') or (three == 'Null')):
+    if ((three.get('seasoning', 'not this') == 'null') or (three.get('ingredient', 'not this') == 'null') or (three.get('ingredient', 'not this') == 'Null')):
         pass
     else:
         recipe_list_of_stuff.append(three)
-    if ((four == '') or (four == 'null') or (four == 'Null')):
+    if ((four.get('seasoning', 'not this') == 'null') or (four.get('ingredient', 'not this') == 'null') or (four.get('ingredient', 'not this') == 'Null')):
         pass
     else:
         recipe_list_of_stuff.append(four)
-    if ((five == '') or (five == 'null') or (five == 'Null')):
+    if ((five.get('seasoning', 'not this') == 'null') or (five.get('ingredient', 'not this') == 'null') or (five.get('ingredient', 'not this') == 'Null')):
         pass
     else:
         recipe_list_of_stuff.append(five)
-    if ((six == '') or (six == 'null') or (six == 'Null')):
+    if ((six.get('seasoning', 'not this') == 'null') or (six.get('ingredient', 'not this') == 'null') or (six.get('ingredient', 'not this') == 'Null')):
         pass
     else:
         recipe_list_of_stuff.append(six)
-    if ((seven == '') or (seven == 'null') or (seven == 'Null')):
+    if ((seven.get('seasoning', 'not this') == 'null') or (seven.get('ingredient', 'not this') == 'null') or (seven.get('ingredient', 'not this') == 'Null')):
         pass
     else:
         recipe_list_of_stuff.append(seven)
-    if ((eight == '') or (eight == 'null') or (eight == 'Null')):
+    if ((eight.get('seasoning', 'not this') == 'null') or (eight.get('ingredient', 'not this') == 'null') or (eight.get('ingredient', 'not this') == 'Null')):
         pass
     else:
         recipe_list_of_stuff.append(eight)
-    if ((nine == '') or (nine == 'null') or (nine == 'Null')):
+    if ((nine.get('seasoning', 'not this') == 'null') or (nine.get('ingredient', 'not this') == 'null') or (nine.get('ingredient', 'not this') == 'Null')):
         pass
     else:
         recipe_list_of_stuff.append(nine)
-    if ((ten == '') or (ten == 'null') or (ten == 'Null')):
+    if ((ten.get('seasoning', 'not this') == 'null') or (ten.get('ingredient', 'not this') == 'null') or (ten.get('ingredient', 'not this') == 'Null')):
         pass
     else:
-        recipe_list_of_stuff.append(ten)
-    recipe_list_of_stuff.sort()
+        recipe_list_of_stuff.append(one)
+    #recipe_list_of_stuff.sort()
+    #print(recipe_list_of_stuff)
+    print()
+    print()
     return recipe_list_of_stuff
 
 number = 9
@@ -121,6 +126,9 @@ flavor_names_list = ['Sweet', 'Spicy', 'Bitter', 'Sour', 'Salty']
 powers_names_list = ['egg', 'catching', 'exp', 'item', 'raid', 'title', 'sparkling', 'humungo', 'teensy', 'encounter']
 types_names_list = ['fire', 'grass', 'water', 'electric', 'normal', 'ground', 'rock', 'psychic', 'ghost', 'flying', 'ice', 'bug', 'fighting', 'poison', 'dragon', 'dark', 'steel', 'fairy']
 
+in_game_flavor_names_list_in_order = ['Sweet', 'Salty', 'Sour', 'Bitter', 'Spicy']
+in_game_powers_names_list_in_order = ['egg', 'catching', 'item', 'humungo', 'teensy', 'raid', 'encounter', 'exp', 'title', 'sparkling']
+in_game_types_names_list_in_order = ['normal', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark', 'fairy']
 
 
 #List of ingredients
@@ -151,35 +159,35 @@ ingredients = [
         'flavor': [Sweet, 1, 5, 2, 1],
         'powers': [2, catching, exp, item, 2, title, sparkling, humungo, teensy, -2],
         'types': [fire, grass, water, electric, 1, 1, 1, psychic, 1, 1, ice, 1, 1, 1, dragon, dark, 1, fairy],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Tomato',
         'flavor': [2, Spicy, 1, 4, Salty],
         'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
         'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, 6],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Tofu',
         'flavor': [3, Spicy, Bitter, Sour, Salty],
         'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
         'types': [fire, grass, water, electric, 6, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Strawberry',
         'flavor': [4, Spicy, Bitter, 4, Salty],
         'powers': [4, -1, exp, 7, raid, title, sparkling, -5, teensy, encounter],
         'types': [fire, grass, water, electric, normal, ground, rock, 7, 7, flying, ice, bug, 7, poison, dragon, dark, steel, fairy],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Smoked Fillet',
         'flavor': [1, Spicy, 3, 2, 3],
         'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
         'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, 6, steel, fairy],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Rice',
@@ -193,7 +201,7 @@ ingredients = [
         'flavor': [3, Spicy, 1, Sour, Salty],
         'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
         'types': [fire, grass, water, electric, normal, ground, rock, psychic, 6, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Red Bell Pepper',
@@ -207,14 +215,14 @@ ingredients = [
         'flavor': [2, Spicy, Bitter, 1, 4],
         'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
         'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, 6, ice, bug, fighting, poison, dragon, dark, steel, fairy],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Potato Tortilla',
         'flavor': [3, 1, 3, 1, 4],
         'powers': [egg, 21, exp, item, 12, title, sparkling, humungo, teensy, -3],
         'types': [20, 20, water, electric, normal, ground, 20, 20, 20, flying, ice, bug, 20, 20, 20, dark, steel, 20],
-        'pieces': number  
+        'pieces': 1  
         },
     {
         'ingredient': 'Potato Salad',
@@ -228,21 +236,21 @@ ingredients = [
         'flavor': [3, Spicy, 1, 5, Salty],
         'powers': [4, -1, exp, 7, raid, title, sparkling, -5, teensy, encounter],
         'types': [fire, grass, 7, electric, normal, 7, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, 7, steel, fairy],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Pickle',
         'flavor': [2, 3, 1, Sour, Salty],
         'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
         'types': [fire, grass, 7, electric, normal, 7, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, 7, steel, fairy],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Onion',
         'flavor': [2, 3, 1, 0, 0],
         'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
         'types': [0, 0, 0, 0, 0, ground, rock, 6, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Noodles',
@@ -256,7 +264,7 @@ ingredients = [
         'flavor': [1, 0, 2, 0, 0],
         'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
         'types': [0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Klawf Stick',
@@ -270,14 +278,14 @@ ingredients = [
         'flavor': [2, 0, 1, 5, 0],
         'powers': [4, -1, exp, 7, raid, title, sparkling, -5, teensy, encounter],
         'types': [7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Jalapeno',
         'flavor': [0, 5, 0, 2, 0],
         'powers': [4, -1, 0, 7, 0, 0, 0, -5, 0, 0],
         'types': [0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Hamburger',
@@ -291,14 +299,14 @@ ingredients = [
         'flavor': [1, 0, 4, 0, 4],
         'powers': [0, 0, 7, -1, 0, 0, 0, 0, 0, 4],
         'types': [0, 0, 12, 0, 0, 12, 0, 12, 12, 0, 0, 0, 12, 0, 0, 12, 0, 0],
-        'pieces': number 
+        'pieces': 3 
         },
     {
         'ingredient': 'Ham',
         'flavor': [1, 0, 0, 0, 5],
         'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
         'types': [0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Green Bell Pepper',
@@ -312,35 +320,35 @@ ingredients = [
         'flavor': [2, 0, 3, 0, 3],
         'powers': [0, 21, 0, 0, 12, 0, 0, 0, 0, -3],
         'types': [0, 0, 20, 20, 20, 20, 0, 0, 0, 20, 20, 20, 0, 0, 0, 20, 20, 0],
-        'pieces': number  
+        'pieces': 1  
         },
     {
         'ingredient': 'Egg',
         'flavor': [1, 0, 1, 0, 2],
         'powers': [0, 0, 7, -1, 0, 0, 0, 0, 0, 4],
         'types': [0, 12, 0, 0, 0, 0, 12, 0, 0, 12, 12, 0, 0, 0, 0, 0, 12, 12],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Cucumber',
         'flavor': [0, 0, 1, 1, 0],
         'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
         'types': [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Chorizo',
         'flavor': [0, 4, 2, 0, 4],
         'powers': [0, 0, 7, -1, 0, 0, 0, 0, 0, 4],
         'types': [12, 0, 0, 12, 12, 0, 0, 0, 0, 0, 0, 12, 0, 12, 12, 0, 0, 0],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Cherry Tomatoes',
         'flavor': [3, 0, 1, 5, 0],
         'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
         'types': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Cheese',
@@ -368,14 +376,14 @@ ingredients = [
         'flavor': [1, 0, 4, 1, 5],
         'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
         'types': [0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        'pieces': number
+        'pieces': 3
         },
     {
         'ingredient': 'Avocado',
         'flavor': [3, 0, 1, 0, 0],
         'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
         'types': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0],
-        'pieces': number
+        'pieces': 3
         },
     {
         'ingredient': 'Apple',
@@ -534,39 +542,94 @@ seasonings = [
         },
     ]
 
+
 def get_item_type(something):
+    print(something)
     for dictionary in ingredients:
-        if dictionary.get('ingredient') == something:
+        if dictionary.get('ingredient') == something.get('ingredient'):
             return 'an ingredient'
     for dictionary in seasonings:
-        if dictionary.get('seasoning') == something:
+        if dictionary.get('seasoning') == something.get('seasoning'):
             return 'a seasoning'
+
+def get_max_value(profile_list):
+    if len(profile_list) == len(types_names_list):
+        mapped_list = types_names_list
+        mapped_in_game_list = in_game_types_names_list_in_order
+    elif len(profile_list) == len(powers_names_list):
+        mapped_list = powers_names_list
+        mapped_in_game_list = in_game_powers_names_list_in_order
+    elif len(profile_list) == len(flavor_names_list):
+        mapped_list = flavor_names_list
+        mapped_in_game_list = in_game_flavor_names_list_in_order
+    else:
+        print('profile = ' + str(profile_list))
+        print('profile len does not match any name list len!')
+    max_value = max(profile_list)
+    list_of_max_profiles = []
+    for i in range(0, len(profile_list)):
+        if max_value == profile_list[i]:
+            list_of_max_profiles.append(mapped_list[i])
+    #Must fix. Ties are not handled alphabetically
+    sorted_list = []
+    for i in range(0, len(mapped_in_game_list)):
+        for j in range(0, len(list_of_max_profiles)):
+            if list_of_max_profiles[j] == mapped_in_game_list[i]:
+                sorted_list.append(list_of_max_profiles[j])
+    print(sorted_list)
+    return sorted_list[0], max_value
+    
+def top_value_removed(given_list, top_type):
+    if top_type in types_names_list:
+        liste = types_names_list
+    elif top_type in powers_names_list:
+        liste = powers_names_list
+    elif top_type in flavor_names_list:
+        liste = flavor_names_list
+    else:
+        print(str(top_type) + ' is not found in any profile lists')
+        exit(0)
+    the_index = liste.index(top_type)
+    given_list[the_index] = -277353
+    return given_list
+
+def valTOlvl(value):
+    if value < 100:
+        return 1
+    elif value < 2000:
+        return 2
+    else:
+        return 3
+    
 
 
 def determine_powers(a_list):
     total_flavor = [Sweet, Spicy, Bitter, Sour, Salty]
-    total_powers = [egg, catching, exp, item, raid, 0, 0, humungo, teensy, encounter]
+    total_powers = [egg, catching, exp, item, raid, title, sparkling, humungo, teensy, encounter]
     total_types = [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy]
-
-    for item in a_list:
-        item_type = get_item_type(item)
+    print(a_list)
+    for element in a_list:
+        print(element)
+        item_type = get_item_type(element)
+        print(item_type)
         if item_type == 'an ingredient':
             for dictionary in ingredients:
-                if dictionary.get('ingredient') == item:
+                if dictionary.get('ingredient') == element.get('ingredient'):
                     flavor_profile = dictionary.get('flavor')
                     power_profile = dictionary.get('powers')
                     type_profile = dictionary.get('types')
-                    pieces = dictionary.get('pieces')
-                    break
+                    pieces = [dictionary.get('pieces')]
+                    #break
             
         elif item_type == 'a seasoning':
-            pieces = 1
+            pieces = [1]
             for dictionary in seasonings:
-                if dictionary.get('seasoning') == item:
+                if dictionary.get('seasoning') == element.get('seasoning'):
+                    print('in')
                     flavor_profile = dictionary.get('flavor')
                     power_profile = dictionary.get('powers')
                     type_profile = dictionary.get('types')
-                    break
+                    #break
                 
         flavor_profile = element_wise_addition(pieces, flavor_profile)
         power_profile = element_wise_addition(pieces, power_profile)
@@ -576,8 +639,109 @@ def determine_powers(a_list):
         total_powers = element_wise_addition(total_powers, power_profile)
         total_types = element_wise_addition(total_types, type_profile)
 
-    max_flavor_value = max(total_flavor)
+    top_flavor, top_flavor_value = get_max_value(total_flavor)
+    total_flavor = top_value_removed(total_flavor, top_flavor)
+    second_top_flavor, second_top_flavor_value = get_max_value(total_flavor)
+    #Check for flavor bonuses
+    print(top_flavor)
+    print(second_top_flavor)
+    if (([top_flavor, second_top_flavor] == ['Sweet', 'Sour']) or ([top_flavor, second_top_flavor] == ['Sour', 'Sweet'])):
+        total_powers[1] = 100 + total_powers[1]
+    elif (([top_flavor, second_top_flavor] == ['Salty', 'Bitter']) or ([top_flavor, second_top_flavor] == ['Bitter', 'Salty'])):
+        total_powers[2] = 100 + total_powers[2]
+    elif (([top_flavor, second_top_flavor] == ['Sweet', 'Spicy']) or ([top_flavor, second_top_flavor] == ['Spicy', 'Sweet'])):
+        total_powers[4] = 100 + total_powers[4]
+    elif (str(top_flavor) == "Sweet"):
+        print('found ' + str(total_powers[0]))
+        total_powers[0] = 100 + total_powers[0]
+    elif (top_flavor == 'Spicy'):
+        total_powers[7] = 100 + total_powers[7]
+    elif (top_flavor == 'Bitter'):
+        total_powers[3] = 100 + total_powers[3]
+    elif (top_flavor == 'Sour'):
+        total_powers[8] = 100 + total_powers[8]
+    elif (top_flavor == 'Salty'):
+        total_powers[9] = 100 + total_powers[9]
+    else:
+        print('something got fuked up')
     
+    top_power, top_power_value = get_max_value(total_powers)
+    total_powers = top_value_removed(total_powers, top_power)
+    second_top_power, second_top_power_value = get_max_value(total_powers)
+    total_powers = top_value_removed(total_powers, second_top_power)
+    third_top_power, third_top_power_value = get_max_value(total_powers)
+    total_powers = top_value_removed(total_powers, third_top_power)
+    fourth_top_power, fourth_top_power_value = get_max_value(total_powers)
+    #Deal with sparkle crap
+    if (top_power == 'sparkling') and (top_power_value < 2000):
+        #Sparkling Power can only be lvl 3 I think
+        top_power, top_power_value = second_top_power, second_top_power_value
+        second_top_power, second_top_power_value = third_top_power, third_top_power_value
+        third_top_power, third_top_power_value = fourth_top_power, fourth_top_power_value
+    if (second_top_power == 'sparkling') and (second_top_power_value < 2000):
+        second_top_power, second_top_power_value = third_top_power, third_top_power_value
+        third_top_power, third_top_power_value = fourth_top_power, fourth_top_power_value
+    print(top_power)
+    print(top_power_value)
+    print(second_top_power)
+    print(second_top_power_value)
+    print(third_top_power)
+    print(third_top_power_value)
+    print(fourth_top_power)
+    print(fourth_top_power_value)
+    top_type, top_type_value = get_max_value(total_types)
+    total_types = top_value_removed(total_types, top_type)
+    second_top_type, second_top_type_value = get_max_value(total_types)
+    total_types = top_value_removed(total_types, second_top_type)
+    third_top_type, third_top_type_value = get_max_value(total_types)
+    total_types = top_value_removed(total_types, third_top_type)
+
+    top_power_level = valTOlvl(top_power_value)
+    second_top_power_level = valTOlvl(second_top_power_value)
+    third_top_power_level = valTOlvl(third_top_power_value)
+    if [top_power, second_top_power] == ['sparkling', 'title'] or [top_power, second_top_power] == ['title', 'sparkling']:
+        if third_top_power == 'egg':
+            the_list_of_things =  [
+                [top_power, top_power_level, top_type],
+                [second_top_power, second_top_power_level, top_type],
+                [third_top_power, third_top_power_level, ' ']
+                ]
+        else:
+            the_list_of_things =  [
+                [top_power, top_power_level, top_type],
+                [second_top_power, second_top_power_level, top_type],
+                [third_top_power, third_top_power_level, top_type]
+                ]
+    else:
+        the_list_of_things =  [
+            [top_power, top_power_level, top_type],
+            [second_top_power, second_top_power_level, second_top_type],
+            [third_top_power, third_top_power_level, third_top_type]
+            ]
+        if top_power == 'egg':
+            the_list_of_things =  [
+                [top_power, top_power_level, ' '],
+                [second_top_power, second_top_power_level, second_top_type],
+                [third_top_power, third_top_power_level, second_top_type]
+                ]
+        elif second_top_power == 'egg':
+            the_list_of_things =  [
+                [top_power, top_power_level, top_type],
+                [second_top_power, second_top_power_level, ' '],
+                [third_top_power, third_top_power_level, second_top_type]
+                ]
+        elif third_top_power == 'egg':
+            the_list_of_things =  [
+                [top_power, top_power_level, top_type],
+                [second_top_power, second_top_power_level, second_top_type],
+                [third_top_power, third_top_power_level, ' ']
+                ]
+    for each in the_list_of_things:
+        if each[0] == 'egg':
+            each[2] = ' '
+    return the_list_of_things
+        
+     
 
 
 in_game_sandwhiche_ingredient_combinations = [
@@ -741,7 +905,50 @@ for combo in in_game_sandwhiche_ingredient_combinations:
     recipe = combo
     recipe.sort()
     list_of_found_recipes.append(recipe)
+def update_recipe_dex(dictionary):
+    info = '\n' + str(dictionary) + '\n'
+    info = info.replace("' ', ' '", '')
+    info = info.replace(",''", '')
+    info = info.replace("'',", '')
+    info = info.replace("''", '')
+    info = info.replace(", ' '", '')
+    info = info.replace(", ]", ']')
+    #, ' '
+    if exists('Recipe_List.txt'):
+        pass
+    else:
+        txt_file = open('Recipe_List.txt', 'w')
+        txt_file.write('The Recipe Dex')
+        txt_file.close()
+    txt_file = open('Recipe_List.txt', 'a')
+    txt_file.write(info)
+    txt_file.close()
 
+def valid_sandwich(test_recipe):
+    #Yeah Im not sandwhich making scrub
+    #No 1/2 star sandwiches for me
+    #Yeah I could account for them but do we even really want them
+    #Each sandwich needs an ingredient and a seasoning
+    ingredient_check = False
+    seasoning_check = False
+    for some_shit in test_recipe:
+        if some_shit.get('seasoning', '') == '':
+            pass
+        elif some_shit.get('seasoning', 'null') == 'null':
+            pass
+        else:
+            #print('s check pass')
+            seasoning_check = True
+        if some_shit.get('ingredient', 'null') == 'null':
+            pass
+        elif some_shit.get('ingredient', '') == '':
+            pass
+        else:
+            #print('i check pass')
+            ingredient_check = True
+    return ingredient_check and seasoning_check
+        
+    
 
 #pokemon checker
 def Pokemon():
@@ -754,21 +961,42 @@ def Pokemon():
                             for ingredient_three_index in range(0, len(ingredients)):
                                 for ingredient_four_index in range(0, len(ingredients)):
                                     for ingredient_five_index in range(0, len(ingredients)):
-                                        for ingredient_six_index in range(0, len(ingredients)):
-                                            recipe = build_sandwich(ingredient_one_index,
-                                                                    seasoning_one_index,
-                                                                    seasoning_two_index,
-                                                                    seasoning_three_index,
-                                                                    seasoning_four_index,
-                                                                    ingredient_two_index,
-                                                                    ingredient_three_index,
-                                                                    ingredient_four_index,
-                                                                    ingredient_five_index,
-                                                                    ingredient_six_index)
-                                            if recipe in list_of_found_recipes:
-                                                pass
+                                        for ingredient_six_index in range(1, len(ingredients)):
+                                            recipe = build_sandwich(ingredients[ingredient_one_index],
+                                                                    seasonings[seasoning_one_index],
+                                                                    seasonings[seasoning_two_index],
+                                                                    seasonings[seasoning_three_index],
+                                                                    seasonings[seasoning_four_index],
+                                                                    ingredients[ingredient_two_index],
+                                                                    ingredients[ingredient_three_index],
+                                                                    ingredients[ingredient_four_index],
+                                                                    ingredients[ingredient_five_index],
+                                                                    ingredients[ingredient_six_index])
+                                            if valid_sandwich(recipe):
+                                                combo_of_ingredients_and_seasonings = []
+                                                for thing in recipe:
+                                                    if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
+                                                        pass
+                                                    else:
+                                                        combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
+                                                    if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
+                                                        pass
+                                                    else:
+                                                        combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
+                                                combo_of_ingredients_and_seasonings.sort()
+
+                                                if combo_of_ingredients_and_seasonings in list_of_found_recipes:
+                                                    pass
+                                                else:
+                                                    the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
+                                                    recipe_dict = {
+                                                        'Meal Powers': the_list_of_powers_from_custom_sandwiches,
+                                                        'Recipe': combo_of_ingredients_and_seasonings
+                                                        }
+                                                    update_recipe_dex(recipe_dict)
+                                                    list_of_found_recipes.append(combo_of_ingredients_and_seasonings)
                                             else:
-                                                the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
+                                                print('combo found already')
     return 11037
 
 
