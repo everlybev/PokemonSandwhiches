@@ -985,13 +985,14 @@ def update_recipe_dex(dictionary):
     info = info.replace("'',", '')
     info = info.replace("''", '')
     info = info.replace(", ' '", '')
+    info = info.replace("'", '')
     info = info.replace(", ]", ']')
     #, ' '
     if exists('Recipe_List.txt'):
         pass
     else:
         txt_file = open('Recipe_List.txt', 'w')
-        txt_file.write('The Recipe Dex')
+        txt_file.write("The Recipe Dex - {Meal Powers: [[Power, Level, Type], [Power, Level, Type], [Power, Level, Type]], Recipe: [Seasonings, Ingredients]}")
         txt_file.close()
     txt_file = open('Recipe_List.txt', 'a')
     txt_file.write(info)
