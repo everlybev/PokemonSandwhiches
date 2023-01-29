@@ -1020,6 +1020,12 @@ def valid_sandwich(test_recipe):
         else:
             #print('i check pass')
             ingredient_check = True
+            #Max pieces of ingredient on sandwhich seems to be 12
+            number_of_this_ingredient = test_recipe.count(some_shit) * some_shit.get('pieces')
+            if number_of_this_ingredient > 12:
+                print('This sandwich has too much ' + str(some_shit.get('ingredient')) + '!  It has ' + str(number_of_this_ingredient) + ' pieces.')
+                return False
+    
     return ingredient_check and seasoning_check
         
     
@@ -1079,24 +1085,45 @@ def Pokemon():
 ##                            ingredients[0],
 ##                            ingredients[35], #apple
 ##                            ingredients[31]) #basil
-##    the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
-##    combo_of_ingredients_and_seasonings = []
-##    for thing in recipe:
-##        if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
-##            pass
-##        else:
-##            combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
-##        if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
-##            pass
-##        else:
-##            combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
-##    combo_of_ingredients_and_seasonings.sort()
-##    recipe_dict = {
-##        'Meal Powers': the_list_of_powers_from_custom_sandwiches,
-##        'Recipe': combo_of_ingredients_and_seasonings
-##        }
-##    print()
-##    print(recipe_dict)
+##    recipe = build_sandwich(ingredients[0],
+##                            seasonings[0],
+##                            seasonings[0],
+##                            seasonings[0],
+##                            seasonings[1], #sweet
+##                            ingredients[35], #apple
+##                            ingredients[35], #apple
+##                            ingredients[35], #apple
+##                            ingredients[35], #apple
+##                            ingredients[35]) #apple
+##    recipe = build_sandwich(ingredients[0],
+##                            seasonings[4],
+##                            seasonings[3],
+##                            seasonings[0],
+##                            seasonings[2], #sweet
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[35]) #basil
+##    if valid_sandwich(recipe):
+##        the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
+##        combo_of_ingredients_and_seasonings = []
+##        for thing in recipe:
+##            if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
+##                pass
+##            else:
+##                combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
+##            if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
+##                pass
+##            else:
+##                combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
+##        combo_of_ingredients_and_seasonings.sort()
+##        recipe_dict = {
+##            'Meal Powers': the_list_of_powers_from_custom_sandwiches,
+##            'Recipe': combo_of_ingredients_and_seasonings
+##            }
+##        print()
+##        print(recipe_dict)
 ##    exit(0)
     
     for ingredient_one_index in range(0, len(ingredients)):
