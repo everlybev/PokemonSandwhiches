@@ -530,7 +530,7 @@ seasonings = [
     {
         'seasoning': 'Chili Sauce',
         'flavor': [8, 20, Bitter, 8, 12],
-        'powers': [-3, catching, 12, item, 12, 0, 0, humungo, teensy, encounter],
+        'powers': [-3, catching, 12, item, 21, 0, 0, humungo, teensy, encounter],
         'types': [fire, 2, 2, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy]
         },
     {
@@ -1036,266 +1036,176 @@ def valid_sandwich(test_recipe):
 
 #pokemon checker
 def Pokemon():
-####    ##############
-####    #testing
-####    print(ingredients[34])
+######    ##############
+######    #testing
+######    print(ingredients[34])
+####    recipe = build_sandwich(ingredients[0],
+####                            seasonings[0],
+####                            seasonings[1],
+####                            seasonings[0],
+####                            seasonings[1], #sweet
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[7], #rice
+####                            ingredients[34]) #avocado
+####    recipe = build_sandwich(ingredients[0],
+####                            seasonings[0],
+####                            seasonings[0],
+####                            seasonings[21], #chili
+####                            seasonings[1], #sweet
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[28]) #chorizo
+####    recipe = build_sandwich(ingredients[0],
+####                            seasonings[0],
+####                            seasonings[0],
+####                            seasonings[0], #chili
+####                            seasonings[1], #sweet
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[2]) #watercress
+####    recipe = build_sandwich(ingredients[0],
+####                            seasonings[0],
+####                            seasonings[0],
+####                            seasonings[2], #sour
+####                            seasonings[1], #sweet
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[1]) #yellow pep
+####    recipe = build_sandwich(ingredients[0],
+####                            seasonings[0],
+####                            seasonings[0],
+####                            seasonings[0],
+####                            seasonings[1], #sweet
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[35], #apple
+####                            ingredients[31]) #basil
+####    recipe = build_sandwich(ingredients[0],
+####                            seasonings[0],
+####                            seasonings[0],
+####                            seasonings[0],
+####                            seasonings[1], #sweet
+####                            ingredients[35], #apple
+####                            ingredients[35], #apple
+####                            ingredients[35], #apple
+####                            ingredients[35], #apple
+####                            ingredients[35]) #apple
+####    recipe = build_sandwich(ingredients[0],
+####                            seasonings[4],
+####                            seasonings[3],
+####                            seasonings[0],
+####                            seasonings[2], #sweet
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[35]) #apple
+##    import random
+##    a = random.randint(0, 5)
 ##    recipe = build_sandwich(ingredients[0],
+##                            seasonings[0],
+##                            seasonings[0+a],
+##                            seasonings[0],
+##                            seasonings[1+a], #sweet
+##                            ingredients[23], #ham
+##                            ingredients[18+a], #klawf
+##                            ingredients[14], #pickle
+##                            ingredients[2+a], #watercress
+##                            ingredients[35]) #apple
+##    tests = [
+##        build_sandwich(ingredients[0],
+##                            ingredients[1],
+##                            ingredients[2],
+##                            ingredients[3],
+##                            ingredients[4],
+##                            ingredients[5],
 ##                            seasonings[0],
 ##                            seasonings[1],
-##                            seasonings[0],
-##                            seasonings[1], #sweet
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[7], #rice
-##                            ingredients[34]) #avocado
-##    recipe = build_sandwich(ingredients[0],
-##                            seasonings[0],
-##                            seasonings[0],
-##                            seasonings[21], #chili
-##                            seasonings[1], #sweet
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[28]) #chorizo
-##    recipe = build_sandwich(ingredients[0],
-##                            seasonings[0],
-##                            seasonings[0],
-##                            seasonings[0], #chili
-##                            seasonings[1], #sweet
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[2]) #watercress
-##    recipe = build_sandwich(ingredients[0],
-##                            seasonings[0],
-##                            seasonings[0],
-##                            seasonings[2], #sour
-##                            seasonings[1], #sweet
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[1]) #yellow pep
-##    recipe = build_sandwich(ingredients[0],
-##                            seasonings[0],
-##                            seasonings[0],
-##                            seasonings[0],
-##                            seasonings[1], #sweet
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[35], #apple
-##                            ingredients[31]) #basil
-##    recipe = build_sandwich(ingredients[0],
-##                            seasonings[0],
-##                            seasonings[0],
-##                            seasonings[0],
-##                            seasonings[1], #sweet
-##                            ingredients[35], #apple
-##                            ingredients[35], #apple
-##                            ingredients[35], #apple
-##                            ingredients[35], #apple
-##                            ingredients[35]) #apple
-##    recipe = build_sandwich(ingredients[0],
+##                            seasonings[2],
+##                            seasonings[3]),
+##        build_sandwich(ingredients[6],
+##                            ingredients[7],
+##                            ingredients[8],
+##                            ingredients[9],
+##                            ingredients[10],
+##                            ingredients[11],
 ##                            seasonings[4],
-##                            seasonings[3],
-##                            seasonings[0],
-##                            seasonings[2], #sweet
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[35]) #apple
-    import random
-    a = random.randint(0, 5)
-    recipe = build_sandwich(ingredients[0+a],
-                            seasonings[0],
-                            seasonings[0+a],
-                            seasonings[0],
-                            seasonings[1+a], #sweet
-                            ingredients[23], #ham
-                            ingredients[18+a], #klawf
-                            ingredients[14], #pickle
-                            ingredients[2+a], #watercress
-                            ingredients[35]) #apple
-    tests = [
-        build_sandwich(ingredients[0],
-                            ingredients[1+a],
-                            ingredients[2],
-                            ingredients[3+a],
-                            ingredients[4],
-                            ingredients[5+a],
-                            seasonings[0],
-                            seasonings[1+a],
-                            seasonings[2],
-                            seasonings[3+a]),
-        build_sandwich(ingredients[6+a],
-                            ingredients[7],
-                            ingredients[2+a],
-                            ingredients[3],
-                            ingredients[4+a],
-                            ingredients[5],
-                            seasonings[4+a],
-                            seasonings[5],
-                            seasonings[6+a],
-                            seasonings[3]),
-        build_sandwich(ingredients[6+random.randint(0, 10)],
-                            ingredients[7],
-                            ingredients[8+random.randint(0, 10)],
-                            ingredients[9],
-                            ingredients[4+random.randint(0, 10)],
-                            ingredients[5],
-                            seasonings[7+random.randint(0, 10)],
-                            seasonings[8],
-                            seasonings[2+random.randint(0, 10)],
-                            seasonings[9]),
-        build_sandwich(ingredients[6],
-                            ingredients[7+random.randint(0, 10)],
-                            ingredients[8],
-                            ingredients[9+random.randint(0, 10)],
-                            ingredients[10],
-                            ingredients[11+random.randint(0, 10)],
-                            seasonings[10],
-                            seasonings[11+random.randint(0, 10)],
-                            seasonings[1],
-                            seasonings[12+random.randint(0, 10)]),
-        build_sandwich(ingredients[12+random.randint(0, 7)],
-                            ingredients[13],
-                            ingredients[8+random.randint(0, 7)],
-                            ingredients[9],
-                            ingredients[10+random.randint(0, 7)],
-                            ingredients[11],
-                            seasonings[13+random.randint(0, 7)],
-                            seasonings[14],
-                            seasonings[15+random.randint(0, 7)],
-                            seasonings[2]),
-        build_sandwich(ingredients[12+random.randint(0, 7)],
-                            ingredients[13],
-                            ingredients[14+random.randint(0, 7)],
-                            ingredients[15],
-                            ingredients[10+random.randint(0, 7)],
-                            ingredients[11],
-                            seasonings[3+random.randint(0, 7)],
-                            seasonings[16],
-                            seasonings[17+random.randint(0, 4)],
-                            seasonings[18]),
-        build_sandwich(ingredients[12+random.randint(0, 4)],
-                            ingredients[13],
-                            ingredients[14+random.randint(0, 4)],
-                            ingredients[15],
-                            ingredients[16+random.randint(0, 4)],
-                            ingredients[17],
-                            seasonings[19+random.randint(0, 4)],
-                            seasonings[20],
-                            seasonings[21-random.randint(0, 4)],
-                            seasonings[12]),
-        build_sandwich(ingredients[18],
-                            ingredients[19+random.randint(0, 4)],
-                            ingredients[14],
-                            ingredients[15],
-                            ingredients[16],
-                            ingredients[17],
-                            seasonings[22],
-                            seasonings[14],
-                            seasonings[20],
-                            seasonings[21]),
-        build_sandwich(ingredients[18],
-                            ingredients[19],
-                            ingredients[20],
-                            ingredients[21],
-                            ingredients[16],
-                            ingredients[17],
-                            seasonings[2],
-                            seasonings[4],
-                            seasonings[10],
-                            seasonings[21-random.randint(0, 4)]),
-        build_sandwich(ingredients[18],
-                            ingredients[19],
-                            ingredients[20],
-                            ingredients[21],
-                            ingredients[22],
-                            ingredients[23-random.randint(0, 4)],
-                            seasonings[2],
-                            seasonings[4],
-                            seasonings[0],
-                            seasonings[1]),
-        build_sandwich(ingredients[24],
-                            ingredients[25],
-                            ingredients[26],
-                            ingredients[21],
-                            ingredients[22-random.randint(0, 4)],
-                            ingredients[23],
-                            seasonings[2],
-                            seasonings[3],
-                            seasonings[0],
-                            seasonings[1]),
-        build_sandwich(ingredients[24],
-                            ingredients[25],
-                            ingredients[26],
-                            ingredients[27],
-                            ingredients[28],
-                            ingredients[29],
-                            seasonings[2],
-                            seasonings[3-random.randint(0, 2)],
-                            seasonings[4],
-                            seasonings[1]),
-        build_sandwich(ingredients[30],
-                            ingredients[31],
-                            ingredients[32-random.randint(0, 4)],
-                            ingredients[27],
-                            ingredients[28],
-                            ingredients[29],
-                            seasonings[2],
-                            seasonings[3],
-                            seasonings[4-random.randint(0, 4)],
-                            seasonings[1]),
-        build_sandwich(ingredients[30],
-                            ingredients[31],
-                            ingredients[32-random.randint(0, 11)],
-                            ingredients[27],
-                            ingredients[28],
-                            ingredients[29],
-                            seasonings[6-random.randint(0, 6)],
-                            seasonings[5],
-                            seasonings[4],
-                            seasonings[1]),
-        build_sandwich(ingredients[30],
-                            ingredients[31],
-                            ingredients[32],
-                            ingredients[33],
-                            ingredients[34],
-                            ingredients[35-random.randint(0, 11)],
-                            seasonings[6],
-                            seasonings[9],
-                            seasonings[8-random.randint(0, 5)],
-                            seasonings[7])
-        ]
-    print(len(ingredients))
-    print(len(seasonings))
-    for recipe in tests:
-        if valid_sandwich(recipe):
-            the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
-            combo_of_ingredients_and_seasonings = []
-            for thing in recipe:
-                if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
-                    pass
-                else:
-                    combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
-                if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
-                    pass
-                else:
-                    combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
-            combo_of_ingredients_and_seasonings.sort()
-            recipe_dict = {
-                'Meal Powers': the_list_of_powers_from_custom_sandwiches,
-                'Recipe': combo_of_ingredients_and_seasonings
-                }
-            print()
-            print(recipe_dict)
-    exit(0)
+##                            seasonings[5],
+##                            seasonings[6],
+##                            seasonings[7]),
+##        build_sandwich(ingredients[12],
+##                            ingredients[13],
+##                            ingredients[14],
+##                            ingredients[15],
+##                            ingredients[16],
+##                            ingredients[17],
+##                            seasonings[8],
+##                            seasonings[10],
+##                            seasonings[11],
+##                            seasonings[9]),
+##        build_sandwich(ingredients[18],
+##                            ingredients[19],
+##                            ingredients[20],
+##                            ingredients[21],
+##                            ingredients[22],
+##                            ingredients[23],
+##                            seasonings[12],
+##                            seasonings[13],
+##                            seasonings[14],
+##                            seasonings[15]),
+##        build_sandwich(ingredients[24],
+##                            ingredients[25],
+##                            ingredients[26],
+##                            ingredients[27],
+##                            ingredients[28],
+##                            ingredients[29],
+##                            seasonings[16],
+##                            seasonings[17],
+##                            seasonings[18],
+##                            seasonings[19]),
+##        build_sandwich(ingredients[30],
+##                            ingredients[31],
+##                            ingredients[32],
+##                            ingredients[33],
+##                            ingredients[34],
+##                            ingredients[35],
+##                            seasonings[20],
+##                            seasonings[21],
+##                            seasonings[22],
+##                            seasonings[8])
+##        ]
+##    print(len(ingredients))
+##    print(len(seasonings))
+##    for recipe in tests:
+##        if valid_sandwich(recipe):
+##            the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
+##            combo_of_ingredients_and_seasonings = []
+##            for thing in recipe:
+##                if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
+##                    pass
+##                else:
+##                    combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
+##                if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
+##                    pass
+##                else:
+##                    combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
+##            combo_of_ingredients_and_seasonings.sort()
+##            recipe_dict = {
+##                'Meal Powers': the_list_of_powers_from_custom_sandwiches,
+##                'Recipe': combo_of_ingredients_and_seasonings
+##                }
+##            print()
+##            print(recipe_dict)
+##    exit(0)
     
     for ingredient_one_index in range(0, len(ingredients)):
         for seasoning_one_index in range(0, len(seasonings)):
