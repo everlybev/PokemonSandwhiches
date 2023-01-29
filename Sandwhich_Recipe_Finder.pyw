@@ -158,7 +158,7 @@ ingredients = [
         'flavor': [Sweet, 1, 5, 2, 1],
         'powers': [2, catching, exp, item, 2, title, sparkling, humungo, teensy, -2],
         'types': [fire, grass, water, electric, 1, 1, 1, psychic, 1, 1, ice, 1, 1, 1, dragon, dark, 1, fairy],
-        'pieces': 3  
+        'pieces': 3
         },
     {
         'ingredient': 'Tomato',
@@ -239,10 +239,10 @@ ingredients = [
         },
     {
         'ingredient': 'Pickle',
-        'flavor': [1, Spicy, 2, 12, Salty],
+        'flavor': [1, Spicy, 2, 4, Salty],
         'powers': [egg, 12, exp, item, -3, title, sparkling, humungo, teensy, 7],
-        'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, 18, poison, dragon, dark, steel, fairy],
-        'pieces': 3  
+        'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, 6, poison, dragon, dark, steel, fairy],
+        'pieces': 3
         },
     {
         'ingredient': 'Onion',
@@ -267,10 +267,10 @@ ingredients = [
         },
     {
         'ingredient': 'Klawf Stick',
-        'flavor': [4, 0, 0, 0, 4],
-        'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
-        'types': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0],
-        'pieces': 3  
+        'flavor': [4, Spicy, Bitter, Sour, 4],
+        'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
+        'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, 6, bug, fighting, poison, dragon, dark, steel, fairy],
+        'pieces': 3
         },
     {
         'ingredient': 'Kiwi',
@@ -302,10 +302,10 @@ ingredients = [
         },
     {
         'ingredient': 'Ham',
-        'flavor': [1, 0, 0, 0, 5],
-        'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
-        'types': [0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        'pieces': 3  
+        'flavor': [1, Spicy, Bitter, Sour, 5],
+        'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
+        'types': [fire, grass, water, electric, normal, 6, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy],
+        'pieces': 3
         },
     {
         'ingredient': 'Green Bell Pepper',
@@ -386,10 +386,10 @@ ingredients = [
         },
     {
         'ingredient': 'Apple',
-        'flavor': [4, 0, 1, 3, 0],
-        'powers': [4, -1, 0, 7, 0, 0, 0, -5, 0, 0],
-        'types': [0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 7, 0],
-        'pieces': 3
+        'flavor': [4, Spicy, 1, 3, Salty],
+        'powers': [4, -3, exp, 7, raid, title, sparkling, -5, teensy, encounter],
+        'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, 7, 7, bug, fighting, poison, dragon, dark, 7, fairy],
+        'pieces': 3  
         },
     ]
 #exit(0)
@@ -734,6 +734,7 @@ def determine_powers(a_list):
 ##    print(third_top_power_value)
 ##    print(fourth_top_power)
 ##    print(fourth_top_power_value)
+    print(total_types)
     top_type, top_type_value = get_max_value(total_types)
     total_types = top_value_removed(total_types, top_type)
     second_top_type, second_top_type_value = get_max_value(total_types)
@@ -741,6 +742,7 @@ def determine_powers(a_list):
     third_top_type, third_top_type_value = get_max_value(total_types)
     total_types = top_value_removed(total_types, third_top_type)
 
+    print(top_type, top_type_value, second_top_type, second_top_type_value, third_top_type, third_top_type_value)
     top_type, top_type_value, second_top_type, second_top_type_value, third_top_type, third_top_type_value = get_the_final_types_and_values(top_type,
                                                                                                                                             top_type_value,
                                                                                                                                             second_top_type,
@@ -748,6 +750,7 @@ def determine_powers(a_list):
                                                                                                                                             third_top_type,
                                                                                                                                             third_top_type_value
                                                                                                                                             )
+    print(top_type, top_type_value, second_top_type, second_top_type_value, third_top_type, third_top_type_value)
     
     top_power_level, second_top_power_level, third_top_power_level = valTOlvl(top_type_value, second_top_type_value, third_top_type_value)
 ##    second_top_power_level = valTOlvl(second_top_power_value)
@@ -1035,46 +1038,46 @@ def Pokemon():
 ####    ##############
 ####    #testing
 ####    print(ingredients[34])
-######    recipe = build_sandwich(ingredients[0],
-######                            seasonings[0],
-######                            seasonings[0],
-######                            seasonings[0],
-######                            seasonings[1], #sweet
-######                            ingredients[0],
-######                            ingredients[0],
-######                            ingredients[0],
-######                            ingredients[7], #rice
-######                            ingredients[34]) #avocado
-######    recipe = build_sandwich(ingredients[0],
-######                            seasonings[0],
-######                            seasonings[0],
-######                            seasonings[21], #chili
-######                            seasonings[1], #sweet
-######                            ingredients[0],
-######                            ingredients[0],
-######                            ingredients[0],
-######                            ingredients[0],
-######                            ingredients[28]) #chorizo
-######    recipe = build_sandwich(ingredients[0],
-######                            seasonings[0],
-######                            seasonings[0],
-######                            seasonings[0], #chili
-######                            seasonings[1], #sweet
-######                            ingredients[0],
-######                            ingredients[0],
-######                            ingredients[0],
-######                            ingredients[0],
-######                            ingredients[2]) #watercress
-####    recipe = build_sandwich(ingredients[0],
-####                            seasonings[0],
-####                            seasonings[0],
-####                            seasonings[2], #sour
-####                            seasonings[1], #sweet
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[1]) #yellow pep
+##    recipe = build_sandwich(ingredients[0],
+##                            seasonings[0],
+##                            seasonings[1],
+##                            seasonings[0],
+##                            seasonings[1], #sweet
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[7], #rice
+##                            ingredients[34]) #avocado
+##    recipe = build_sandwich(ingredients[0],
+##                            seasonings[0],
+##                            seasonings[0],
+##                            seasonings[21], #chili
+##                            seasonings[1], #sweet
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[28]) #chorizo
+##    recipe = build_sandwich(ingredients[0],
+##                            seasonings[0],
+##                            seasonings[0],
+##                            seasonings[0], #chili
+##                            seasonings[1], #sweet
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[2]) #watercress
+##    recipe = build_sandwich(ingredients[0],
+##                            seasonings[0],
+##                            seasonings[0],
+##                            seasonings[2], #sour
+##                            seasonings[1], #sweet
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[1]) #yellow pep
 ##    recipe = build_sandwich(ingredients[0],
 ##                            seasonings[0],
 ##                            seasonings[0],
@@ -1110,32 +1113,185 @@ def Pokemon():
                             seasonings[0],
                             seasonings[0],
                             seasonings[1], #sweet
-                            ingredients[23],
+                            ingredients[23], #ham
                             ingredients[18], #klawf
                             ingredients[14], #pickle
                             ingredients[2], #watercress
                             ingredients[35]) #apple
+    tests = [
+        build_sandwich(ingredients[0],
+                            ingredients[1],
+                            ingredients[2],
+                            ingredients[3],
+                            ingredients[4],
+                            ingredients[5],
+                            seasonings[0],
+                            seasonings[1],
+                            seasonings[2],
+                            seasonings[3]),
+        build_sandwich(ingredients[6],
+                            ingredients[7],
+                            ingredients[2],
+                            ingredients[3],
+                            ingredients[4],
+                            ingredients[5],
+                            seasonings[4],
+                            seasonings[5],
+                            seasonings[6],
+                            seasonings[3]),
+        build_sandwich(ingredients[6],
+                            ingredients[7],
+                            ingredients[8],
+                            ingredients[9],
+                            ingredients[4],
+                            ingredients[5],
+                            seasonings[7],
+                            seasonings[8],
+                            seasonings[2],
+                            seasonings[9]),
+        build_sandwich(ingredients[6],
+                            ingredients[7],
+                            ingredients[8],
+                            ingredients[9],
+                            ingredients[10],
+                            ingredients[11],
+                            seasonings[10],
+                            seasonings[11],
+                            seasonings[1],
+                            seasonings[12]),
+        build_sandwich(ingredients[12],
+                            ingredients[13],
+                            ingredients[8],
+                            ingredients[9],
+                            ingredients[10],
+                            ingredients[11],
+                            seasonings[13],
+                            seasonings[14],
+                            seasonings[15],
+                            seasonings[2]),
+        build_sandwich(ingredients[12],
+                            ingredients[13],
+                            ingredients[14],
+                            ingredients[15],
+                            ingredients[10],
+                            ingredients[11],
+                            seasonings[3],
+                            seasonings[16],
+                            seasonings[17],
+                            seasonings[18]),
+        build_sandwich(ingredients[12],
+                            ingredients[13],
+                            ingredients[14],
+                            ingredients[15],
+                            ingredients[16],
+                            ingredients[17],
+                            seasonings[19],
+                            seasonings[20],
+                            seasonings[21],
+                            seasonings[12]),
+        build_sandwich(ingredients[18],
+                            ingredients[19],
+                            ingredients[14],
+                            ingredients[15],
+                            ingredients[16],
+                            ingredients[17],
+                            seasonings[22],
+                            seasonings[14],
+                            seasonings[20],
+                            seasonings[21]),
+        build_sandwich(ingredients[18],
+                            ingredients[19],
+                            ingredients[20],
+                            ingredients[21],
+                            ingredients[16],
+                            ingredients[17],
+                            seasonings[2],
+                            seasonings[4],
+                            seasonings[10],
+                            seasonings[21]),
+        build_sandwich(ingredients[18],
+                            ingredients[19],
+                            ingredients[20],
+                            ingredients[21],
+                            ingredients[22],
+                            ingredients[23],
+                            seasonings[2],
+                            seasonings[4],
+                            seasonings[0],
+                            seasonings[1]),
+        build_sandwich(ingredients[24],
+                            ingredients[25],
+                            ingredients[26],
+                            ingredients[21],
+                            ingredients[22],
+                            ingredients[23],
+                            seasonings[2],
+                            seasonings[3],
+                            seasonings[0],
+                            seasonings[1]),
+        build_sandwich(ingredients[24],
+                            ingredients[25],
+                            ingredients[26],
+                            ingredients[27],
+                            ingredients[28],
+                            ingredients[29],
+                            seasonings[2],
+                            seasonings[3],
+                            seasonings[4],
+                            seasonings[1]),
+        build_sandwich(ingredients[30],
+                            ingredients[31],
+                            ingredients[32],
+                            ingredients[27],
+                            ingredients[28],
+                            ingredients[29],
+                            seasonings[2],
+                            seasonings[3],
+                            seasonings[4],
+                            seasonings[1]),
+        build_sandwich(ingredients[30],
+                            ingredients[31],
+                            ingredients[32],
+                            ingredients[27],
+                            ingredients[28],
+                            ingredients[29],
+                            seasonings[6],
+                            seasonings[5],
+                            seasonings[4],
+                            seasonings[1]),
+        build_sandwich(ingredients[30],
+                            ingredients[31],
+                            ingredients[32],
+                            ingredients[33],
+                            ingredients[34],
+                            ingredients[35],
+                            seasonings[6],
+                            seasonings[9],
+                            seasonings[8],
+                            seasonings[7])
+        ]
     print(len(ingredients))
     print(len(seasonings))
-    if valid_sandwich(recipe):
-        the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
-        combo_of_ingredients_and_seasonings = []
-        for thing in recipe:
-            if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
-                pass
-            else:
-                combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
-            if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
-                pass
-            else:
-                combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
-        combo_of_ingredients_and_seasonings.sort()
-        recipe_dict = {
-            'Meal Powers': the_list_of_powers_from_custom_sandwiches,
-            'Recipe': combo_of_ingredients_and_seasonings
-            }
-        print()
-        print(recipe_dict)
+    for recipe in tests:
+        if valid_sandwich(recipe):
+            the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
+            combo_of_ingredients_and_seasonings = []
+            for thing in recipe:
+                if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
+                    pass
+                else:
+                    combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
+                if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
+                    pass
+                else:
+                    combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
+            combo_of_ingredients_and_seasonings.sort()
+            recipe_dict = {
+                'Meal Powers': the_list_of_powers_from_custom_sandwiches,
+                'Recipe': combo_of_ingredients_and_seasonings
+                }
+            print()
+            print(recipe_dict)
     exit(0)
     
     for ingredient_one_index in range(0, len(ingredients)):
