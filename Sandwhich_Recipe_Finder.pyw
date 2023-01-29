@@ -9,17 +9,6 @@ from os.path import exists
 import secrets
 from email.message import EmailMessage
 
-################################################################################################################################################################################################################################################################################################################
-##Rulez
-##Add everything together -- all tastes, types, and powers of all ingredients and seasonings
-##Note that ingredient pieces count, so three avocado is 18 dragon since it's 6 per piece.
-##Calculate flavor bonuses for the top flavor or top two flavors in some situations
-##Assign powers & levels -- if a power is less than 100 its level 1, if a power is less than 280 its level 2, otherwise its level 3. The top power is given the top type, the second power is given the third type, and the third power is given the second type. Idk why it was done this way, ask Game Freak.
-##Sandwiches with herba mystica (HM) have some additional considerations: one HM always gets you title power. Two HMs always gets you title and sparling power.
-##Title Power and Sparkle Power always are the top type.  The third power is also the top type.
-##If there's a tie in types, powers, or flavors, they're sorted in in-game order not alphabetical, so Normal will take prioroty over Flying, for instance.
-################################################################################################################################################################################################################################################################################################################
-
 
 def element_wise_addition(list_one, list_two):
     print(list_one)
@@ -32,6 +21,16 @@ def element_wise_addition(list_one, list_two):
     else:
         for i in range(len(list_one)-len(list_two), len(list_one)):
             resulting_list.append(list_one[i]+list_two[i])
+    return resulting_list
+
+def element_wise_multiplication(first, second):
+    resulting_list = []
+    if len(first) == 1:
+        for i in range(0, len(second)):
+            resulting_list.append(first[0]*second[i])
+    else:
+        for i in range(len(first)-len(second), len(first)):
+            resulting_list.append(first[i]+second[i])
     return resulting_list
 
 def build_sandwich(one, two, three, four, five, six, seven, eight, nine, ten):
@@ -75,7 +74,7 @@ def build_sandwich(one, two, three, four, five, six, seven, eight, nine, ten):
     if ((ten.get('seasoning', 'not this') == 'null') or (ten.get('ingredient', 'not this') == 'null') or (ten.get('ingredient', 'not this') == 'Null')):
         pass
     else:
-        recipe_list_of_stuff.append(one)
+        recipe_list_of_stuff.append(ten)
     #recipe_list_of_stuff.sort()
     #print(recipe_list_of_stuff)
     print()
@@ -380,8 +379,8 @@ ingredients = [
         },
     {
         'ingredient': 'Avocado',
-        'flavor': [3, 0, 1, 0, 0],
-        'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
+        'flavor': [9, 0, 0, 3, 0],
+        'powers': [egg, 12, exp, item, -3, title, sparkling, humungo, teensy, 21],
         'types': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0],
         'pieces': 3
         },
@@ -593,14 +592,61 @@ def top_value_removed(given_list, top_type):
     given_list[the_index] = -277353
     return given_list
 
-def valTOlvl(value):
-    if value < 100:
-        return 1
-    elif value < 2000:
-        return 2
+def valTOlvl(valueT, valueS, valueTh):
+    #It seems like the values to determine levels are the type values not the power values
+    print('powers:')
+    print(valueT, valueS, valueTh)
+    print('powers above')
+    if valueT < 100:
+        return 1, 1, 1
+    elif(valueT >= 180) and (valueT <= 280):
+        if (valueS >= 180) and (valueTh >= 180):
+            return 2, 2, 1
+        else:
+            return 2, 1, 1
+    elif (valueT > 280) and (valueT < 380):
+        if valueTh >= 180:
+            return 2, 2, 2
+        else:
+            return 2, 2, 1
+    elif (valueT >= 380) and (valueT < 460):
+        if (valueS >= 380) and (valueTh >= 380):
+            return 3, 3, 3
+        else:
+            return 3, 3, 2
+    elif valueT >= 460:
+        return 3, 3, 3
     else:
-        return 3
-    
+        return 1, 1, 1
+
+def get_the_final_types_and_values(top_t, top_tv, second_top_t, second_top_tv, third_top_t, third_top_tv):
+    print(top_t, top_tv, second_top_t, second_top_tv, third_top_t, third_top_tv)
+    if top_tv > 480:
+        return top_t, top_tv, top_t, top_tv, top_t, top_tv
+    elif top_tv > 280:
+        return top_t, top_tv, top_t, top_tv, third_top_t, third_top_tv
+    else:
+        final_types_and_values_list = top_t, top_tv, third_top_t, third_top_tv, second_top_t, second_top_tv
+        weird_fucking_bullshit = False
+        diff_or_whatever = top_tv - second_top_tv
+        if (top_tv > 105) and ((top_tv - second_top_tv) > 105):
+            final_types_and_values_list = top_t, top_tv, top_t, top_tv, third_top_t, third_top_tv
+        elif (top_tv >= 100) and (top_tv <= 105):
+            if (diff_or_whatever >= 80) and (second_top_tv <= 21):
+                weird_fucking_bullshit = True
+        elif (top_tv >= 90) and (top_tv < 100):
+            if (diff_or_whatever >= 78) and (second_top_tv <= 16):
+                weird_fucking_bullshit = True
+        elif (top_tv >= 80) and (top_tv < 90):
+            if (diff_or_whatever >= 74) and (second_top_tv <= 9):
+                weird_fucking_bullshit = True
+        elif (top_tv >= 74) and (top_tv < 80):
+            if (diff_or_whatever >= 72) and (second_top_tv <= 5):
+                weird_fucking_bullshit = True
+        if weird_fucking_bullshit:
+            return top_t, top_tv, third_top_t, third_top_tv, top_t, top_tv
+        else:
+            return final_types_and_values_list
 
 
 def determine_powers(a_list):
@@ -631,9 +677,9 @@ def determine_powers(a_list):
                     type_profile = dictionary.get('types')
                     #break
                 
-        flavor_profile = element_wise_addition(pieces, flavor_profile)
-        power_profile = element_wise_addition(pieces, power_profile)
-        type_profile = element_wise_addition(pieces, type_profile)
+        flavor_profile = element_wise_multiplication(pieces, flavor_profile)
+        power_profile = element_wise_multiplication(pieces, power_profile)
+        type_profile = element_wise_multiplication(pieces, type_profile)
         
         total_flavor = element_wise_addition(total_flavor, flavor_profile)
         total_powers = element_wise_addition(total_powers, power_profile)
@@ -696,21 +742,49 @@ def determine_powers(a_list):
     third_top_type, third_top_type_value = get_max_value(total_types)
     total_types = top_value_removed(total_types, third_top_type)
 
-    top_power_level = valTOlvl(top_power_value)
-    second_top_power_level = valTOlvl(second_top_power_value)
-    third_top_power_level = valTOlvl(third_top_power_value)
+    top_type, top_type_value, second_top_type, second_top_type_value, third_top_type, third_top_type_value = get_the_final_types_and_values(top_type,
+                                                                                                                                            top_type_value,
+                                                                                                                                            second_top_type,
+                                                                                                                                            second_top_type_value,
+                                                                                                                                            third_top_type,
+                                                                                                                                            third_top_type_value
+                                                                                                                                            )
+    
+    top_power_level, second_top_power_level, third_top_power_level = valTOlvl(top_type_value, second_top_type_value, third_top_type_value)
+##    second_top_power_level = valTOlvl(second_top_power_value)
+##    third_top_power_level = valTOlvl(third_top_power_value)
+    
     if [top_power, second_top_power] == ['sparkling', 'title'] or [top_power, second_top_power] == ['title', 'sparkling']:
         if third_top_power == 'egg':
             the_list_of_things =  [
                 [top_power, top_power_level, top_type],
-                [second_top_power, second_top_power_level, top_type],
-                [third_top_power, third_top_power_level, ' ']
+                [second_top_power, second_top_power_level, second_top_type],
+                [third_top_power, third_top_power_level, ' '] #this is egg
                 ]
         else:
             the_list_of_things =  [
                 [top_power, top_power_level, top_type],
-                [second_top_power, second_top_power_level, top_type],
-                [third_top_power, third_top_power_level, top_type]
+                [second_top_power, second_top_power_level, second_top_type],
+                [third_top_power, third_top_power_level, third_top_type] #none are eggs; title/sparkle are tops along with third
+                ]
+    elif [top_power] == ['title']:
+        if second_top_power == 'egg':
+            the_list_of_things =  [
+                [top_power, top_power_level, top_type],
+                [second_top_power, second_top_power_level, ' '],
+                [third_top_power, third_top_power_level, third_top_type] #this is egg
+                ]
+        elif third_top_power == 'egg':
+            the_list_of_things =  [
+                [top_power, top_power_level, top_type],
+                [second_top_power, second_top_power_level, second_top_type],
+                [third_top_power, third_top_power_level, ' '] #this is egg
+                ]
+        else:
+            the_list_of_things =  [
+                [top_power, top_power_level, top_type],
+                [second_top_power, second_top_power_level, second_top_type],
+                [third_top_power, third_top_power_level, third_top_type] #none are eggs; title/sparkle are tops along with third
                 ]
     else:
         the_list_of_things =  [
@@ -722,13 +796,13 @@ def determine_powers(a_list):
             the_list_of_things =  [
                 [top_power, top_power_level, ' '],
                 [second_top_power, second_top_power_level, second_top_type],
-                [third_top_power, third_top_power_level, second_top_type]
+                [third_top_power, third_top_power_level, third_top_type]
                 ]
         elif second_top_power == 'egg':
             the_list_of_things =  [
                 [top_power, top_power_level, top_type],
                 [second_top_power, second_top_power_level, ' '],
-                [third_top_power, third_top_power_level, second_top_type]
+                [third_top_power, third_top_power_level, third_top_type]
                 ]
         elif third_top_power == 'egg':
             the_list_of_things =  [
@@ -952,6 +1026,69 @@ def valid_sandwich(test_recipe):
 
 #pokemon checker
 def Pokemon():
+##    ##############
+##    #testing
+##    print(ingredients[34])
+####    recipe = build_sandwich(ingredients[0],
+####                            seasonings[0],
+####                            seasonings[0],
+####                            seasonings[0],
+####                            seasonings[1], #sweet
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[7], #rice
+####                            ingredients[34]) #avocado
+####    recipe = build_sandwich(ingredients[0],
+####                            seasonings[0],
+####                            seasonings[0],
+####                            seasonings[21], #chili
+####                            seasonings[1], #sweet
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[28]) #chorizo
+####    recipe = build_sandwich(ingredients[0],
+####                            seasonings[0],
+####                            seasonings[0],
+####                            seasonings[0], #chili
+####                            seasonings[1], #sweet
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[0],
+####                            ingredients[2]) #watercress
+##    recipe = build_sandwich(ingredients[0],
+##                            seasonings[0],
+##                            seasonings[0],
+##                            seasonings[2], #sour
+##                            seasonings[1], #sweet
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[0],
+##                            ingredients[1]) #yellow pep
+##    the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
+##    combo_of_ingredients_and_seasonings = []
+##    for thing in recipe:
+##        if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
+##            pass
+##        else:
+##            combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
+##        if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
+##            pass
+##        else:
+##            combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
+##    combo_of_ingredients_and_seasonings.sort()
+##    recipe_dict = {
+##        'Meal Powers': the_list_of_powers_from_custom_sandwiches,
+##        'Recipe': combo_of_ingredients_and_seasonings
+##        }
+##    print()
+##    print(recipe_dict)
+##    exit(0)
+    
     for ingredient_one_index in range(0, len(ingredients)):
         for seasoning_one_index in range(0, len(seasonings)):
             for seasoning_two_index in range(0, len(seasonings)):
