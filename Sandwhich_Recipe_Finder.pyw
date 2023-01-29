@@ -239,10 +239,10 @@ ingredients = [
         },
     {
         'ingredient': 'Pickle',
-        'flavor': [Sweet, 3, 5, 2, 1],
-        'powers': [2, catching, exp, item, 2, title, sparkling, humungo, teensy, -2],
-        'types': [fire, grass, water, electric, 1, 1, 1, psychic, 1, 1, ice, 1, 1, 1, dragon, dark, 1, fairy],
-        'pieces': 3
+        'flavor': [1, Spicy, 2, 12, Salty],
+        'powers': [egg, 12, exp, item, -3, title, sparkling, humungo, teensy, 7],
+        'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, 18, poison, dragon, dark, steel, fairy],
+        'pieces': 3  
         },
     {
         'ingredient': 'Onion',
