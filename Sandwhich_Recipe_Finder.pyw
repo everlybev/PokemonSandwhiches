@@ -1104,7 +1104,9 @@ def Pokemon():
 ##                            ingredients[0],
 ##                            ingredients[0],
 ##                            ingredients[0],
-##                            ingredients[35]) #basil
+##                            ingredients[35]) #apple
+##    print(len(ingredients))
+##    print(len(seasonings))
 ##    if valid_sandwich(recipe):
 ##        the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
 ##        combo_of_ingredients_and_seasonings = []
