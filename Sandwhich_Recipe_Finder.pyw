@@ -992,14 +992,14 @@ def update_recipe_dex(dictionary):
         pass
     else:
         txt_file = open('Recipe_List.txt', 'w')
-        txt_file.write("The Recipe Dex - {Meal Powers: [[Power, Level, Type], [Power, Level, Type], [Power, Level, Type]], Recipe: [Seasonings, Ingredients]}")
+        txt_file.write("The Recipe Dex - {Meal Powers: [[Power, Level, Type], [Power, Level, Type], [Power, Level, Type]], Recipe: [Seasonings, Ingredients]}:")
         txt_file.close()
     txt_file = open('Recipe_List.txt', 'a')
     txt_file.write(info)
     txt_file.close()
 
 def valid_sandwich(test_recipe):
-    #Yeah Im not sandwhich making scrub
+    #Yeah Im not a sandwhich making scrub
     #No 1/2 star sandwiches for me
     #Yeah I could account for them but do we even really want them
     #Each sandwich needs an ingredient and a seasoning
@@ -1026,49 +1026,59 @@ def valid_sandwich(test_recipe):
 
 #pokemon checker
 def Pokemon():
-##    ##############
-##    #testing
-##    print(ingredients[34])
+####    ##############
+####    #testing
+####    print(ingredients[34])
+######    recipe = build_sandwich(ingredients[0],
+######                            seasonings[0],
+######                            seasonings[0],
+######                            seasonings[0],
+######                            seasonings[1], #sweet
+######                            ingredients[0],
+######                            ingredients[0],
+######                            ingredients[0],
+######                            ingredients[7], #rice
+######                            ingredients[34]) #avocado
+######    recipe = build_sandwich(ingredients[0],
+######                            seasonings[0],
+######                            seasonings[0],
+######                            seasonings[21], #chili
+######                            seasonings[1], #sweet
+######                            ingredients[0],
+######                            ingredients[0],
+######                            ingredients[0],
+######                            ingredients[0],
+######                            ingredients[28]) #chorizo
+######    recipe = build_sandwich(ingredients[0],
+######                            seasonings[0],
+######                            seasonings[0],
+######                            seasonings[0], #chili
+######                            seasonings[1], #sweet
+######                            ingredients[0],
+######                            ingredients[0],
+######                            ingredients[0],
+######                            ingredients[0],
+######                            ingredients[2]) #watercress
 ####    recipe = build_sandwich(ingredients[0],
 ####                            seasonings[0],
 ####                            seasonings[0],
-####                            seasonings[0],
+####                            seasonings[2], #sour
 ####                            seasonings[1], #sweet
 ####                            ingredients[0],
 ####                            ingredients[0],
 ####                            ingredients[0],
-####                            ingredients[7], #rice
-####                            ingredients[34]) #avocado
-####    recipe = build_sandwich(ingredients[0],
-####                            seasonings[0],
-####                            seasonings[0],
-####                            seasonings[21], #chili
-####                            seasonings[1], #sweet
 ####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[28]) #chorizo
-####    recipe = build_sandwich(ingredients[0],
-####                            seasonings[0],
-####                            seasonings[0],
-####                            seasonings[0], #chili
-####                            seasonings[1], #sweet
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[2]) #watercress
+####                            ingredients[1]) #yellow pep
 ##    recipe = build_sandwich(ingredients[0],
 ##                            seasonings[0],
 ##                            seasonings[0],
-##                            seasonings[2], #sour
+##                            seasonings[0],
 ##                            seasonings[1], #sweet
 ##                            ingredients[0],
 ##                            ingredients[0],
 ##                            ingredients[0],
-##                            ingredients[0],
-##                            ingredients[1]) #yellow pep
+##                            ingredients[35], #apple
+##                            ingredients[31]) #basil
 ##    the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
 ##    combo_of_ingredients_and_seasonings = []
 ##    for thing in recipe:
