@@ -239,10 +239,10 @@ ingredients = [
         },
     {
         'ingredient': 'Pickle',
-        'flavor': [2, 3, 1, Sour, Salty],
-        'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
-        'types': [fire, grass, 7, electric, normal, 7, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, 7, steel, fairy],
-        'pieces': 3  
+        'flavor': [Sweet, 3, 5, 2, 1],
+        'powers': [2, catching, exp, item, 2, title, sparkling, humungo, teensy, -2],
+        'types': [fire, grass, water, electric, 1, 1, 1, psychic, 1, 1, ice, 1, 1, 1, dragon, dark, 1, fairy],
+        'pieces': 3
         },
     {
         'ingredient': 'Onion',
@@ -1105,28 +1105,38 @@ def Pokemon():
 ##                            ingredients[0],
 ##                            ingredients[0],
 ##                            ingredients[35]) #apple
-##    print(len(ingredients))
-##    print(len(seasonings))
-##    if valid_sandwich(recipe):
-##        the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
-##        combo_of_ingredients_and_seasonings = []
-##        for thing in recipe:
-##            if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
-##                pass
-##            else:
-##                combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
-##            if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
-##                pass
-##            else:
-##                combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
-##        combo_of_ingredients_and_seasonings.sort()
-##        recipe_dict = {
-##            'Meal Powers': the_list_of_powers_from_custom_sandwiches,
-##            'Recipe': combo_of_ingredients_and_seasonings
-##            }
-##        print()
-##        print(recipe_dict)
-##    exit(0)
+    recipe = build_sandwich(ingredients[0],
+                            seasonings[0],
+                            seasonings[0],
+                            seasonings[0],
+                            seasonings[1], #sweet
+                            ingredients[23],
+                            ingredients[18], #klawf
+                            ingredients[14], #pickle
+                            ingredients[2], #watercress
+                            ingredients[35]) #apple
+    print(len(ingredients))
+    print(len(seasonings))
+    if valid_sandwich(recipe):
+        the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
+        combo_of_ingredients_and_seasonings = []
+        for thing in recipe:
+            if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
+                pass
+            else:
+                combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
+            if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
+                pass
+            else:
+                combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
+        combo_of_ingredients_and_seasonings.sort()
+        recipe_dict = {
+            'Meal Powers': the_list_of_powers_from_custom_sandwiches,
+            'Recipe': combo_of_ingredients_and_seasonings
+            }
+        print()
+        print(recipe_dict)
+    exit(0)
     
     for ingredient_one_index in range(0, len(ingredients)):
         for seasoning_one_index in range(0, len(seasonings)):
