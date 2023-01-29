@@ -246,7 +246,7 @@ ingredients = [
         },
     {
         'ingredient': 'Onion',
-        'flavor': [3, 3, 1, Sour, Salty],
+        'flavor': [2, 3, 1, Sour, Salty],
         'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
         'types': [0, 0, 0, 0, 0, ground, rock, 6, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy],
         'pieces': 3  
