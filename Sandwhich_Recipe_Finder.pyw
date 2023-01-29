@@ -270,7 +270,7 @@ ingredients = [
         'flavor': [4, 0, 0, 0, 4],
         'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
         'types': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0],
-        'pieces': number  
+        'pieces': 3  
         },
     {
         'ingredient': 'Kiwi',
@@ -294,7 +294,7 @@ ingredients = [
         'pieces': 1  
         },
     {
-        'ingredient': 'Herbered Sausage',
+        'ingredient': 'Herbed Sausage',
         'flavor': [1, 0, 4, 0, 4],
         'powers': [0, 0, 7, -1, 0, 0, 0, 0, 0, 4],
         'types': [0, 0, 12, 0, 0, 12, 0, 12, 12, 0, 0, 0, 12, 0, 0, 12, 0, 0],
