@@ -11,8 +11,8 @@ from email.message import EmailMessage
 
 
 def element_wise_addition(list_one, list_two):
-    print(list_one)
-    print(list_two)
+##    print(list_one)
+##    print(list_two)
     #both lists must be the same legnth
     resulting_list = []
     if len(list_one) == 1:
@@ -77,8 +77,8 @@ def build_sandwich(one, two, three, four, five, six, seven, eight, nine, ten):
         recipe_list_of_stuff.append(ten)
     #recipe_list_of_stuff.sort()
     #print(recipe_list_of_stuff)
-    print()
-    print()
+##    print()
+##    print()
     return recipe_list_of_stuff
 
 number = 9
@@ -543,7 +543,7 @@ seasonings = [
 
 
 def get_item_type(something):
-    print(something)
+    #print(something)
     for dictionary in ingredients:
         if dictionary.get('ingredient') == something.get('ingredient'):
             return 'an ingredient'
@@ -575,7 +575,7 @@ def get_max_value(profile_list):
         for j in range(0, len(list_of_max_profiles)):
             if list_of_max_profiles[j] == mapped_in_game_list[i]:
                 sorted_list.append(list_of_max_profiles[j])
-    print(sorted_list)
+    #print(sorted_list)
     return sorted_list[0], max_value
     
 def top_value_removed(given_list, top_type):
@@ -594,9 +594,9 @@ def top_value_removed(given_list, top_type):
 
 def valTOlvl(valueT, valueS, valueTh):
     #It seems like the values to determine levels are the type values not the power values
-    print('powers:')
-    print(valueT, valueS, valueTh)
-    print('powers above')
+##    print('powers:')
+##    print(valueT, valueS, valueTh)
+##    print('powers above')
     if valueT < 100:
         return 1, 1, 1
     elif(valueT >= 180) and (valueT <= 280):
@@ -620,7 +620,7 @@ def valTOlvl(valueT, valueS, valueTh):
         return 1, 1, 1
 
 def get_the_final_types_and_values(top_t, top_tv, second_top_t, second_top_tv, third_top_t, third_top_tv):
-    print(top_t, top_tv, second_top_t, second_top_tv, third_top_t, third_top_tv)
+    #print(top_t, top_tv, second_top_t, second_top_tv, third_top_t, third_top_tv)
     if top_tv > 480:
         return top_t, top_tv, top_t, top_tv, top_t, top_tv
     elif top_tv > 280:
@@ -653,11 +653,11 @@ def determine_powers(a_list):
     total_flavor = [Sweet, Spicy, Bitter, Sour, Salty]
     total_powers = [egg, catching, exp, item, raid, title, sparkling, humungo, teensy, encounter]
     total_types = [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy]
-    print(a_list)
+    #print(a_list)
     for element in a_list:
-        print(element)
+        #print(element)
         item_type = get_item_type(element)
-        print(item_type)
+        #print(item_type)
         if item_type == 'an ingredient':
             for dictionary in ingredients:
                 if dictionary.get('ingredient') == element.get('ingredient'):
@@ -671,7 +671,7 @@ def determine_powers(a_list):
             pieces = [1]
             for dictionary in seasonings:
                 if dictionary.get('seasoning') == element.get('seasoning'):
-                    print('in')
+                    #print('in')
                     flavor_profile = dictionary.get('flavor')
                     power_profile = dictionary.get('powers')
                     type_profile = dictionary.get('types')
@@ -689,8 +689,8 @@ def determine_powers(a_list):
     total_flavor = top_value_removed(total_flavor, top_flavor)
     second_top_flavor, second_top_flavor_value = get_max_value(total_flavor)
     #Check for flavor bonuses
-    print(top_flavor)
-    print(second_top_flavor)
+##    print(top_flavor)
+##    print(second_top_flavor)
     if (([top_flavor, second_top_flavor] == ['Sweet', 'Sour']) or ([top_flavor, second_top_flavor] == ['Sour', 'Sweet'])):
         total_powers[1] = 100 + total_powers[1]
     elif (([top_flavor, second_top_flavor] == ['Salty', 'Bitter']) or ([top_flavor, second_top_flavor] == ['Bitter', 'Salty'])):
@@ -698,7 +698,6 @@ def determine_powers(a_list):
     elif (([top_flavor, second_top_flavor] == ['Sweet', 'Spicy']) or ([top_flavor, second_top_flavor] == ['Spicy', 'Sweet'])):
         total_powers[4] = 100 + total_powers[4]
     elif (str(top_flavor) == "Sweet"):
-        print('found ' + str(total_powers[0]))
         total_powers[0] = 100 + total_powers[0]
     elif (top_flavor == 'Spicy'):
         total_powers[7] = 100 + total_powers[7]
@@ -727,14 +726,14 @@ def determine_powers(a_list):
     if (second_top_power == 'sparkling') and (second_top_power_value < 2000):
         second_top_power, second_top_power_value = third_top_power, third_top_power_value
         third_top_power, third_top_power_value = fourth_top_power, fourth_top_power_value
-    print(top_power)
-    print(top_power_value)
-    print(second_top_power)
-    print(second_top_power_value)
-    print(third_top_power)
-    print(third_top_power_value)
-    print(fourth_top_power)
-    print(fourth_top_power_value)
+##    print(top_power)
+##    print(top_power_value)
+##    print(second_top_power)
+##    print(second_top_power_value)
+##    print(third_top_power)
+##    print(third_top_power_value)
+##    print(fourth_top_power)
+##    print(fourth_top_power_value)
     top_type, top_type_value = get_max_value(total_types)
     total_types = top_value_removed(total_types, top_type)
     second_top_type, second_top_type_value = get_max_value(total_types)
@@ -1130,6 +1129,7 @@ def Pokemon():
                                                         'Meal Powers': the_list_of_powers_from_custom_sandwiches,
                                                         'Recipe': combo_of_ingredients_and_seasonings
                                                         }
+                                                    print(recipe_dict)
                                                     update_recipe_dex(recipe_dict)
                                                     list_of_found_recipes.append(combo_of_ingredients_and_seasonings)
                                             else:
