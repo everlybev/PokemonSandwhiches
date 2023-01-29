@@ -240,30 +240,30 @@ ingredients = [
     {
         'ingredient': 'Pickle',
         'flavor': [1, Spicy, 2, 4, Salty],
-        'powers': [egg, 12, exp, item, -3, title, sparkling, humungo, teensy, 7],
+        'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
         'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, 6, poison, dragon, dark, steel, fairy],
         'pieces': 3
         },
     {
         'ingredient': 'Onion',
-        'flavor': [2, 3, 1, 0, 0],
-        'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
+        'flavor': [3, 3, 1, Sour, Salty],
+        'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
         'types': [0, 0, 0, 0, 0, ground, rock, 6, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy],
         'pieces': 3  
         },
     {
         'ingredient': 'Noodles',
-        'flavor': [0, 0, 0, 0, 4],
-        'powers': [0, 0, 0, 0, 0, 0, 0, 21, -3, 12],
+        'flavor': [Sweet, Spicy, Bitter, Sour, 4],
+        'powers': [egg, catching, exp, item, raid, title, sparkling, 21, -1, 12],
         'types': [0, 0, 0, 30, 0, 30, 30, 30, 0, 0, 30, 0, 0, 30, 0, 0, 0, 0],
         'pieces': 1  
         },
     {
         'ingredient': 'Lettuce',
-        'flavor': [1, 0, 2, 0, 0],
-        'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
-        'types': [0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        'pieces': 3  
+        'flavor': [1, Spicy, 2, Sour, Salty],
+        'powers': [egg, 4, exp, item, -1, title, sparkling, humungo, teensy, 7],
+        'types': [fire, 6, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy],
+        'pieces': 3 
         },
     {
         'ingredient': 'Klawf Stick',
@@ -351,43 +351,43 @@ ingredients = [
         },
     {
         'ingredient': 'Cheese',
-        'flavor': [1, 0, 0, 0, 3],
-        'powers': [0, 2, 2, 2, 0, 0, 0, 0, 0, -2],
+        'flavor': [1, Spicy, Bitter, Sour, 3],
+        'powers': [egg, 2, 2, 2, raid, 0, 0, humungo, teensy, -6],
         'types': [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
         'pieces': 3  
         },
     {
         'ingredient': 'Basil',
-        'flavor': [0, 0, 4, 1, 1],
-        'powers': [2, 0, 0, 0, 2, 0, 0, 0, 0, -2],
-        'types': [1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1],
+        'flavor': [Sweet, Spicy, 4, 1, 1],
+        'powers': [2, catching, exp, item, 2, 0, 0, humungo, teensy, 2],
+        'types': [1, 1, 1, 1, normal, ground, rock, 1, ghost, flying, 1, bug, fighting, poison, 1, 1, steel, 1],
         'pieces': 4  
         },
     {
         'ingredient': 'Banana',
-        'flavor': [4, 0, 0, 1, 0],
-        'powers': [4, -1, 0, 7, 0, 0, 0, -5, 0, 0],
-        'types': [0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0],
+        'flavor': [4, Spicy, Bitter, 1, Salty],
+        'powers': [4, -1, exp, 7, raid, 0, 0, -5, teensy, encounter],
+        'types': [fire, grass, water, 7, 7, ground, rock, psychic, ghost, flying, ice, 7, fighting, poison, dragon, dark, steel, fairy],
         'pieces': 3
         },
     {
         'ingredient': 'Bacon',
-        'flavor': [1, 0, 4, 1, 5],
-        'powers': [0, 4, 0, 0, -1, 0, 0, 0, 0, 7],
-        'types': [0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        'flavor': [1, Spicy, 4, 1, 5],
+        'powers': [egg, 4, exp, item, -1, 0, 0, humungo, teensy, 7],
+        'types': [fire, grass, water, electric, normal, ground, 6, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy],
         'pieces': 3
         },
     {
         'ingredient': 'Avocado',
-        'flavor': [9, 0, 0, 3, 0],
-        'powers': [egg, 12, exp, item, -3, title, sparkling, humungo, teensy, 21],
-        'types': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0],
+        'flavor': [3, Spicy, Bitter, 1, Salty],
+        'powers': [egg, 4, exp, item, -1, 0, 0, humungo, teensy, 7],
+        'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, 6, dark, steel, fairy],
         'pieces': 3
         },
     {
         'ingredient': 'Apple',
         'flavor': [4, Spicy, 1, 3, Salty],
-        'powers': [4, -3, exp, 7, raid, title, sparkling, -5, teensy, encounter],
+        'powers': [4, -1, exp, 7, raid, title, sparkling, -5, teensy, encounter],
         'types': [fire, grass, water, electric, normal, ground, rock, psychic, ghost, 7, 7, bug, fighting, poison, dragon, dark, 7, fairy],
         'pieces': 3  
         },
@@ -446,20 +446,20 @@ seasonings = [
     {
         'seasoning': 'Wasabi',
         'flavor': [4, 20, Bitter, Sour, 4],
-        'powers': [egg, catching, exp, item, raid, title, sparkling, -3, 21, 12],
-        'types': [fire, grass, water, 2, normal, ground, rock, 2, ghost, flying, 2, bug, fighting, poison, 2, 2, steel, 2]
+        'powers': [egg, catching, exp, item, raid, 0, 0, -3, 21, 12],
+        'types': [fire, grass, water, 2, normal, ground, rock, 2, ghost, flying, 2, bug, fighting, poison, 2, 2, steel, 2],
         },
     {
         'seasoning': 'Vinegar',
         'flavor': [4, Spicy, 4, 20, Salty],
-        'powers': [5, catching, -3, 12, raid, title, sparkling, humungo, -15, encounter],
-        'types': [fire, grass, water, electric, normal, ground, rock, 4, ghost, flying, ice, bug, fighting, poison, 4, dark, steel, 4]
+        'powers': [5, catching, -3, 12, raid, 0, 0, humungo, -15, encounter],
+        'types': [fire, grass, water, electric, normal, ground, rock, 4, ghost, flying, ice, bug, fighting, poison, 4, 0, 0, 4],
         },
     {
         'seasoning': 'Salt',
         'flavor': [Sweet, Spicy, 4, Sour, 20],
-        'powers': [-3, catching, 12, item, 21, title, sparkling, humungo, teensy, encounter],
-        'types': [fire, grass, water, 2, normal, ground, rock, 2, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy]
+        'powers': [-3, catching, 12, item, 21, 0, 0, humungo, teensy, encounter],
+        'types': [fire, grass, water, 2, normal, ground, rock, 2, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy],
         },
     {
         'seasoning': 'Pepper',
@@ -475,8 +475,8 @@ seasonings = [
         },
     {
         'seasoning': 'Olive Oil',
-        'flavor': [Sweet, 4, Bitter, 4, Salty],
-        'powers': [5, catching, -3, 12, raid, title, sparkling, humungo, -15, encounter],
+        'flavor': [Sweet, Spicy, 4, 4, Salty],
+        'powers': [5, catching, -3, 12, raid, 0, 0, humungo, -15, encounter],
         'types': [4, 4, water, electric, normal, ground, rock, psychic, 4, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy]
         },
     {
@@ -518,19 +518,19 @@ seasonings = [
     {
         'seasoning': 'Curry Powder',
         'flavor': [4, 30, 12, 4, 4],
-        'powers': [egg, catching, exp, item, raid, title, sparkling, -3, 21, 12],
+        'powers': [egg, catching, exp, item, raid, 0, 0, -3, 21, 12],
         'types': [2, 2, 2, electric, normal, ground, rock, psychic, 2, flying, ice, 2, 0, 0, dragon, dark, 2, fairy]
         },
     {
         'seasoning': 'Cream Cheese',
         'flavor': [12, Spicy, Bitter, 12, 12],
-        'powers': [5, catching, -3, 12, raid, title, sparkling, humungo, -15, encounter],
+        'powers': [5, catching, -3, 12, raid, 0, 0, humungo, -15, encounter],
         'types': [fire, grass, 4, electric, normal, ground, rock, psychic, ghost, flying, ice, 4, fighting, poison, dragon, dark, 4, fairy]
         },
     {
         'seasoning': 'Chili Sauce',
         'flavor': [8, 20, Bitter, 8, 12],
-        'powers': [-3, catching, 12, item, 21, title, sparkling, humungo, teensy, encounter],
+        'powers': [-3, catching, 12, item, 12, 0, 0, humungo, teensy, encounter],
         'types': [fire, 2, 2, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy]
         },
     {
@@ -709,7 +709,8 @@ def determine_powers(a_list):
         total_powers[9] = 100 + total_powers[9]
     else:
         print('something got fuked up')
-    
+
+    #print(total_powers)
     top_power, top_power_value = get_max_value(total_powers)
     total_powers = top_value_removed(total_powers, top_power)
     second_top_power, second_top_power_value = get_max_value(total_powers)
@@ -734,7 +735,7 @@ def determine_powers(a_list):
 ##    print(third_top_power_value)
 ##    print(fourth_top_power)
 ##    print(fourth_top_power_value)
-    print(total_types)
+##    print(total_types)
     top_type, top_type_value = get_max_value(total_types)
     total_types = top_value_removed(total_types, top_type)
     second_top_type, second_top_type_value = get_max_value(total_types)
@@ -742,7 +743,7 @@ def determine_powers(a_list):
     third_top_type, third_top_type_value = get_max_value(total_types)
     total_types = top_value_removed(total_types, third_top_type)
 
-    print(top_type, top_type_value, second_top_type, second_top_type_value, third_top_type, third_top_type_value)
+    #print(top_type, top_type_value, second_top_type, second_top_type_value, third_top_type, third_top_type_value)
     top_type, top_type_value, second_top_type, second_top_type_value, third_top_type, third_top_type_value = get_the_final_types_and_values(top_type,
                                                                                                                                             top_type_value,
                                                                                                                                             second_top_type,
@@ -750,7 +751,7 @@ def determine_powers(a_list):
                                                                                                                                             third_top_type,
                                                                                                                                             third_top_type_value
                                                                                                                                             )
-    print(top_type, top_type_value, second_top_type, second_top_type_value, third_top_type, third_top_type_value)
+    #print(top_type, top_type_value, second_top_type, second_top_type_value, third_top_type, third_top_type_value)
     
     top_power_level, second_top_power_level, third_top_power_level = valTOlvl(top_type_value, second_top_type_value, third_top_type_value)
 ##    second_top_power_level = valTOlvl(second_top_power_value)
@@ -1108,89 +1109,91 @@ def Pokemon():
 ##                            ingredients[0],
 ##                            ingredients[0],
 ##                            ingredients[35]) #apple
-    recipe = build_sandwich(ingredients[0],
+    import random
+    a = random.randint(0, 5)
+    recipe = build_sandwich(ingredients[0+a],
                             seasonings[0],
+                            seasonings[0+a],
                             seasonings[0],
-                            seasonings[0],
-                            seasonings[1], #sweet
+                            seasonings[1+a], #sweet
                             ingredients[23], #ham
-                            ingredients[18], #klawf
+                            ingredients[18+a], #klawf
                             ingredients[14], #pickle
-                            ingredients[2], #watercress
+                            ingredients[2+a], #watercress
                             ingredients[35]) #apple
     tests = [
         build_sandwich(ingredients[0],
-                            ingredients[1],
+                            ingredients[1+a],
                             ingredients[2],
-                            ingredients[3],
+                            ingredients[3+a],
                             ingredients[4],
-                            ingredients[5],
+                            ingredients[5+a],
                             seasonings[0],
-                            seasonings[1],
+                            seasonings[1+a],
                             seasonings[2],
-                            seasonings[3]),
-        build_sandwich(ingredients[6],
+                            seasonings[3+a]),
+        build_sandwich(ingredients[6+a],
                             ingredients[7],
-                            ingredients[2],
+                            ingredients[2+a],
                             ingredients[3],
-                            ingredients[4],
+                            ingredients[4+a],
                             ingredients[5],
-                            seasonings[4],
+                            seasonings[4+a],
                             seasonings[5],
-                            seasonings[6],
+                            seasonings[6+a],
                             seasonings[3]),
-        build_sandwich(ingredients[6],
+        build_sandwich(ingredients[6+random.randint(0, 10)],
                             ingredients[7],
-                            ingredients[8],
+                            ingredients[8+random.randint(0, 10)],
                             ingredients[9],
-                            ingredients[4],
+                            ingredients[4+random.randint(0, 10)],
                             ingredients[5],
-                            seasonings[7],
+                            seasonings[7+random.randint(0, 10)],
                             seasonings[8],
-                            seasonings[2],
+                            seasonings[2+random.randint(0, 10)],
                             seasonings[9]),
         build_sandwich(ingredients[6],
-                            ingredients[7],
+                            ingredients[7+random.randint(0, 10)],
                             ingredients[8],
-                            ingredients[9],
+                            ingredients[9+random.randint(0, 10)],
                             ingredients[10],
-                            ingredients[11],
+                            ingredients[11+random.randint(0, 10)],
                             seasonings[10],
-                            seasonings[11],
+                            seasonings[11+random.randint(0, 10)],
                             seasonings[1],
-                            seasonings[12]),
-        build_sandwich(ingredients[12],
+                            seasonings[12+random.randint(0, 10)]),
+        build_sandwich(ingredients[12+random.randint(0, 7)],
                             ingredients[13],
-                            ingredients[8],
+                            ingredients[8+random.randint(0, 7)],
                             ingredients[9],
-                            ingredients[10],
+                            ingredients[10+random.randint(0, 7)],
                             ingredients[11],
-                            seasonings[13],
+                            seasonings[13+random.randint(0, 7)],
                             seasonings[14],
-                            seasonings[15],
+                            seasonings[15+random.randint(0, 7)],
                             seasonings[2]),
-        build_sandwich(ingredients[12],
+        build_sandwich(ingredients[12+random.randint(0, 7)],
                             ingredients[13],
-                            ingredients[14],
+                            ingredients[14+random.randint(0, 7)],
                             ingredients[15],
-                            ingredients[10],
+                            ingredients[10+random.randint(0, 7)],
                             ingredients[11],
-                            seasonings[3],
+                            seasonings[3+random.randint(0, 7)],
                             seasonings[16],
-                            seasonings[17],
+                            seasonings[17+random.randint(0, 4)],
                             seasonings[18]),
-        build_sandwich(ingredients[12],
+        build_sandwich(ingredients[12+random.randint(0, 4)],
                             ingredients[13],
-                            ingredients[14],
+                            ingredients[14+random.randint(0, 4)],
                             ingredients[15],
-                            ingredients[16],
+                            ingredients[16+random.randint(0, 4)],
                             ingredients[17],
-                            seasonings[19],
+                            seasonings[19+random.randint(0, 4)],
                             seasonings[20],
-                            seasonings[21],
+                            seasonings[21-random.randint(0, 4)],
                             seasonings[12]),
         build_sandwich(ingredients[18],
-                            ingredients[19],
+                            ingredients[19+random.randint(0, 4)],
                             ingredients[14],
                             ingredients[15],
                             ingredients[16],
@@ -1208,13 +1211,13 @@ def Pokemon():
                             seasonings[2],
                             seasonings[4],
                             seasonings[10],
-                            seasonings[21]),
+                            seasonings[21-random.randint(0, 4)]),
         build_sandwich(ingredients[18],
                             ingredients[19],
                             ingredients[20],
                             ingredients[21],
                             ingredients[22],
-                            ingredients[23],
+                            ingredients[23-random.randint(0, 4)],
                             seasonings[2],
                             seasonings[4],
                             seasonings[0],
@@ -1223,7 +1226,7 @@ def Pokemon():
                             ingredients[25],
                             ingredients[26],
                             ingredients[21],
-                            ingredients[22],
+                            ingredients[22-random.randint(0, 4)],
                             ingredients[23],
                             seasonings[2],
                             seasonings[3],
@@ -1236,26 +1239,26 @@ def Pokemon():
                             ingredients[28],
                             ingredients[29],
                             seasonings[2],
-                            seasonings[3],
+                            seasonings[3-random.randint(0, 2)],
                             seasonings[4],
                             seasonings[1]),
         build_sandwich(ingredients[30],
                             ingredients[31],
-                            ingredients[32],
+                            ingredients[32-random.randint(0, 4)],
                             ingredients[27],
                             ingredients[28],
                             ingredients[29],
                             seasonings[2],
                             seasonings[3],
-                            seasonings[4],
+                            seasonings[4-random.randint(0, 4)],
                             seasonings[1]),
         build_sandwich(ingredients[30],
                             ingredients[31],
-                            ingredients[32],
+                            ingredients[32-random.randint(0, 11)],
                             ingredients[27],
                             ingredients[28],
                             ingredients[29],
-                            seasonings[6],
+                            seasonings[6-random.randint(0, 6)],
                             seasonings[5],
                             seasonings[4],
                             seasonings[1]),
@@ -1264,10 +1267,10 @@ def Pokemon():
                             ingredients[32],
                             ingredients[33],
                             ingredients[34],
-                            ingredients[35],
+                            ingredients[35-random.randint(0, 11)],
                             seasonings[6],
                             seasonings[9],
-                            seasonings[8],
+                            seasonings[8-random.randint(0, 5)],
                             seasonings[7])
         ]
     print(len(ingredients))
