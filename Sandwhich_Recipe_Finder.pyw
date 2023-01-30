@@ -983,7 +983,7 @@ for combo in in_game_sandwhiche_ingredient_combinations:
     recipe.sort()
     list_of_found_recipes.append(recipe)
 def update_recipe_dex(dictionary):
-    info = '\n' + str(dictionary) + '\n'
+    info = '\n' + str(dictionary)
     info = info.replace("' ', ' '", '')
     info = info.replace(",''", '')
     info = info.replace("'',", '')
@@ -992,13 +992,14 @@ def update_recipe_dex(dictionary):
     info = info.replace("'", '')
     info = info.replace(", ]", ']')
     #, ' '
-    if exists('Recipe_List.txt'):
+    filename = 'Recipe_List-Reduced_Set.txt'
+    if exists(filename):
         pass
     else:
-        txt_file = open('Recipe_List.txt', 'w')
+        txt_file = open(filename, 'w')
         txt_file.write("The Recipe Dex - {Meal Powers: [[Power, Level, Type], [Power, Level, Type], [Power, Level, Type]], Recipe: [Seasonings, Ingredients]}:")
         txt_file.close()
-    txt_file = open('Recipe_List.txt', 'a')
+    txt_file = open(filename, 'a')
     txt_file.write(info)
     txt_file.close()
 
@@ -1009,26 +1010,38 @@ def valid_sandwich(test_recipe):
     #Each sandwich needs an ingredient and a seasoning
     ingredient_check = False
     seasoning_check = False
-    for some_shit in test_recipe:
-        if some_shit.get('seasoning', '') == '':
-            pass
-        elif some_shit.get('seasoning', 'null') == 'null':
-            pass
-        else:
-            #print('s check pass')
-            seasoning_check = True
-        if some_shit.get('ingredient', 'null') == 'null':
-            pass
-        elif some_shit.get('ingredient', '') == '':
-            pass
-        else:
-            #print('i check pass')
-            ingredient_check = True
-            #Max pieces of ingredient on sandwhich seems to be 12
-            number_of_this_ingredient = test_recipe.count(some_shit) * some_shit.get('pieces')
-            if number_of_this_ingredient > 12:
-                print('This sandwich has too much ' + str(some_shit.get('ingredient')) + '!  It has ' + str(number_of_this_ingredient) + ' pieces.')
-                return False
+    number_of_herba = 0
+    number_of_non_herba = 0
+    while (not (ingredient_check and seasoning_check)):
+        for some_shit in test_recipe:
+            if some_shit.get('seasoning', '') == '':
+                pass
+            elif some_shit.get('seasoning', 'null') == 'null':
+                pass
+            else:
+                #print('s check pass')
+                if str(some_shit.get('seasoning')).__contains__('herba'):
+                    number_of_herba = number_of_herba + 1
+                    if number_of_herba > 2: #theres no real reason to waste 3 herba mystica on a sandwhich
+                        return False
+                else:
+                    number_of_non_herba = number_of_non_herba + 1
+                #I aint really verify this but I dont think any given powers really require two herba and a third condiment
+                if number_of_non_herba + number_of_herba > 2: 
+                    return False
+                seasoning_check = True
+            if some_shit.get('ingredient', 'null') == 'null':
+                pass
+            elif some_shit.get('ingredient', '') == '':
+                pass
+            else:
+                #print('i check pass')
+                ingredient_check = True
+                #Max pieces of ingredient on sandwhich seems to be 12
+                number_of_this_ingredient = test_recipe.count(some_shit) * some_shit.get('pieces')
+                if number_of_this_ingredient > 12:
+                    print('This sandwich has too much ' + str(some_shit.get('ingredient')) + '!  It has ' + str(number_of_this_ingredient) + ' pieces.')
+                    return False
     
     return ingredient_check and seasoning_check
         
@@ -1206,16 +1219,20 @@ def Pokemon():
 ##            print()
 ##            print(recipe_dict)
 ##    exit(0)
-    
-    for ingredient_one_index in range(0, len(ingredients)):
-        for seasoning_one_index in range(0, len(seasonings)):
-            for seasoning_two_index in range(0, len(seasonings)):
-                for seasoning_three_index in range(0, len(seasonings)):
-                    for seasoning_four_index in range(1, len(seasonings)):
-                        for ingredient_two_index in range(0, len(ingredients)):
-                            for ingredient_three_index in range(0, len(ingredients)):
+    #aight so your boi dont got a super computer
+    minus_herba_list = [0]
+    for i in range(6,len(seasonings)):
+        minus_herba_list.append(i)
+    for ingredient_one_index in range(0, 1):
+        for ingredient_five_index in range(0, 1):
+            for ingredient_three_index in range(0, 1):
+                for seasoning_three_index in range(0, 1):
+                    #will use shorter list
+                    for seasoning_two_index in range(0, len(seasonings)):
+                        for ingredient_two_index in range(0, 1): #was planning on 3 each but I think Ill try 2 and 3
+                            for seasoning_four_index in range(0, len(seasonings)):
                                 for ingredient_four_index in range(0, len(ingredients)):
-                                    for ingredient_five_index in range(0, len(ingredients)):
+                                    for seasoning_one_index in range(1, len(seasonings)):
                                         for ingredient_six_index in range(1, len(ingredients)):
                                             recipe = build_sandwich(ingredients[ingredient_one_index],
                                                                     seasonings[seasoning_one_index],
@@ -1241,18 +1258,18 @@ def Pokemon():
                                                 combo_of_ingredients_and_seasonings.sort()
 
                                                 if combo_of_ingredients_and_seasonings in list_of_found_recipes:
-                                                    print('Combo found already')
+                                                    #print('Combo found already')
                                                 else:
                                                     the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
                                                     recipe_dict = {
                                                         'Meal Powers': the_list_of_powers_from_custom_sandwiches,
                                                         'Recipe': combo_of_ingredients_and_seasonings
                                                         }
-                                                    print(recipe_dict)
+                                                    #print(recipe_dict)
                                                     update_recipe_dex(recipe_dict)
                                                     list_of_found_recipes.append(combo_of_ingredients_and_seasonings)
                                             else:
-                                                print('Not a valid sandwich')
+                                                #print('Not a valid sandwich')
     return 11037
 
 
