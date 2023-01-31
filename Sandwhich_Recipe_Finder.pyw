@@ -1228,7 +1228,7 @@ def Pokemon():
             for ingredient_three_index in range(0, 1):
                 for seasoning_three_index in range(0, 1):
                     #will use shorter list
-                    for seasoning_two_index in range(0, len(seasonings)):
+                    for seasoning_two_index in minus_herba_list:
                         for ingredient_two_index in range(0, 1): #was planning on 3 each but I think Ill try 2 and 3
                             for seasoning_four_index in range(0, len(seasonings)):
                                 for ingredient_four_index in range(0, len(ingredients)):
@@ -1258,7 +1258,7 @@ def Pokemon():
                                                 combo_of_ingredients_and_seasonings.sort()
 
                                                 if combo_of_ingredients_and_seasonings in list_of_found_recipes:
-                                                    #print('Combo found already')
+                                                    pass#print('Combo found already')
                                                 else:
                                                     the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
                                                     recipe_dict = {
@@ -1269,7 +1269,7 @@ def Pokemon():
                                                     update_recipe_dex(recipe_dict)
                                                     list_of_found_recipes.append(combo_of_ingredients_and_seasonings)
                                             else:
-                                                #print('Not a valid sandwich')
+                                                pass#print('Not a valid sandwich')
     return 11037
 
 
