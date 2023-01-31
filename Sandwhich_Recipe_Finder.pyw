@@ -1,13 +1,8 @@
 import time
-import smtplib
-import requests
-from bs4 import BeautifulSoup
-from bs4 import SoupStrainer
 from datetime import datetime
 import os
 from os.path import exists
-import secrets
-from email.message import EmailMessage
+from sys import argv
 
 
 def element_wise_addition(list_one, list_two):
@@ -1049,6 +1044,84 @@ def valid_sandwich(test_recipe):
 
 #pokemon checker
 def Pokemon():
+    #inputs
+    power_one = ''
+    level_one = ''
+    type_one = ''
+    power_two = ''
+    level_two = ''
+    type_two = ''
+    power_three = ''
+    level_three = ''
+    type_three = ''
+    try:
+        file, power_one, level_one, type_one, power_two, level_two, type_two, power_three, level_three, type_three = argv
+        #9+1
+    except:
+        try:
+            file, power_one, level_one, type_one, power_two, level_two, type_two = argv
+            #6+1
+        except:
+            try:
+                file, power_one, level_one, type_one = argv
+                #3+1
+            except:
+                #Egg does not get a type
+                try:
+                    #Egg specified first
+                    file, power_one, level_one, power_two, level_two, type_two, power_three, level_three, type_three = argv
+                    #8+1
+                except:
+                    try:
+                        #Egg specified first
+                        file, power_one, level_one, power_two, level_two, type_two = argv
+                        #5+1
+                    except:
+                        try:
+                            #Egg specified first
+                            file, power_one, level_one = argv
+                            #2+1
+                        except:
+                            print('Thats not supported.  Please refresh yourself by reading the instructions.')
+                            ###testing###
+                            [power_one, level_one, type_one] = ['teensy', 2, 'fire']
+                            [power_two, level_two, type_two] = ['encounter', 2, 'electric']
+                            [power_three, level_three, type_three] = ['title', 2, 'electric']
+                            #exit(0)
+    #title, 2, fairy
+    file = 'Recipe_List-Reduced_Set-3S2I.txt'
+    file_object = open(file, 'r')
+    recipes = file_object.readlines()
+    #print(str(recipes[14623]))
+    level_one = str(level_one)
+    level_two = str(level_two)
+    level_three = str(level_three)
+    if power_one == 'egg':
+        p_one = power_one + ', ' + level_one
+    else:
+        p_one = power_one + ', ' + level_one + ', ' + type_one
+    p_two = power_two + ', ' + level_two + ', ' + type_two
+    if p_two == ', , ':
+        p_two = ''
+    p_three = power_three + ', ' + level_three + ', ' + type_three
+    if p_three == ', , ':
+        p_three = '' 
+    print(p_one)
+    print(p_two)
+    print(p_three)
+    found_line = False
+    for line in recipes:
+        if str(line).__contains__(p_one):
+            if str(line).__contains__(p_two):
+                if str(line).__contains__(p_three):
+                    print(line)
+                    found_line = True
+    if not found_line:
+        print('That power combo has not been logged in the recipe list.  Please remember tho that these are original recipes')
+        print('Consult the ingame recipies list for it might have what you are looking for.')
+    exit(0)
+                
+        
 ######    ##############
 ######    #testing
 ######    print(ingredients[34])
