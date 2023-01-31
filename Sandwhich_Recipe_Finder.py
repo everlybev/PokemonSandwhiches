@@ -1080,6 +1080,11 @@ def Pokemon():
                         try:
                             #Egg specified first
                             file, power_one, level_one = argv
+                            if power_one == 'egg':
+                                pass
+                            else:
+                                #print('That is not supported.  Please refresh yourself by reading the instructions.')
+                                exit(0)
                             #2+1
                         except:
                             print('Thats not supported.  Please refresh yourself by reading the instructions.')
@@ -1087,7 +1092,7 @@ def Pokemon():
 ##                            [power_one, level_one, type_one] = ['egg', 2, 'fire']
 ##                            [power_two, level_two, type_two] = ['encounter', 2, 'poison']
 ##                            [power_three, level_three, type_three] = ['exp', 2, 'electric']
-                            #exit(0)
+                            exit(0)
     #title, 2, fairy
     file = 'Recipe_List-Reduced_Set-3S2I.txt'
     file_object = open(file, 'r')
@@ -1107,9 +1112,6 @@ def Pokemon():
     p_three = power_three + ', ' + level_three + ', ' + type_three
     if p_three == ', , ':
         p_three = '' 
-    print(p_one)
-    print(p_two)
-    print(p_three)
     if power_one == 'egg':
         ponon = power_one
         pontw = power_one
@@ -1138,7 +1140,7 @@ def Pokemon():
         recipess = file_object.readlines()
         file_object.close()
         for line in recipess:
-            if str(line).__contains__(p_two):
+            if str(line).__contains__(p_one):
                 if str(line).__contains__(p_two):
                     if str(line).__contains__(p_three):
                         print(line)

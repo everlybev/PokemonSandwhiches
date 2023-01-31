@@ -1,0 +1,33 @@
+For the less tech savy:
+Open up the text docs
+Ctrl F powers you are looking for
+Keep in mind not every power/level/type combination has been found (and some do not exist)
+	Do not expect to find an egg 3, title 3 normal, raid 1 poison for example
+
+For python users or people who might want to become one:
+This is a command line project (I really don't got gui making time)
+Use the Sandwhich_Recipe_Finder.py to find the desired effects
+Again not every combination exists
+It takes arguments in the order power level type
+You can specify 1, 2 or 3 distinct powers in almost any order
+	Egg DOES NOT get a type and MUST be listed first
+	Examples:
+		path\Sandwhich_Recipe_Finder.py egg 1
+		path\Sandwhich_Recipe_Finder.py egg 2 catching 1 water
+		path\Sandwhich_Recipe_Finder.py egg 3 sparkling 3 water title 3 water
+		path\Sandwhich_Recipe_Finder.py teensy 1 poison
+		path\Sandwhich_Recipe_Finder.py teensy 2 ice title 2 psychic
+		path\Sandwhich_Recipe_Finder.py teensy 3 psychic title 3 psychic sparkling 3 psychic
+	powers ---> [egg, catching, exp, item, raid, title, sparkling, humungo, teensy, encounter]
+	levels ---> [1, 2, 3]
+	types --->  [fire, grass, water, electric, normal, ground, rock, psychic, ghost, flying, ice, bug, fighting, poison, dragon, dark, steel, fairy]
+        
+Its possible some combinations have not been discovered yet.  I got what I needed out of this but I also have a 9-5 so I don't know how often Ill be updating.
+If you see improvements feel free to take this and run with it.  Code optimization was never really something I had to deal with in under/grad school or work.
+
+Credits:
+Big shout out to:
+seribii
+https://cecilbowen.github.io/pokemon-sandwich-simulator/
+https://pokemon-sv-sandwich-calc.enigma0z.com/?ingredients=Red%20Onion:3&seasonings=Butter&players=1
+And the whole Pokemon community
