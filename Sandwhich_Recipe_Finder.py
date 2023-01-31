@@ -1083,15 +1083,16 @@ def Pokemon():
                             #2+1
                         except:
                             print('Thats not supported.  Please refresh yourself by reading the instructions.')
-                            ###testing###
-                            [power_one, level_one, type_one] = ['teensy', 2, 'fire']
-                            [power_two, level_two, type_two] = ['encounter', 2, 'electric']
-                            [power_three, level_three, type_three] = ['title', 2, 'electric']
+##                            ###testing###
+##                            [power_one, level_one, type_one] = ['egg', 2, 'fire']
+##                            [power_two, level_two, type_two] = ['encounter', 2, 'poison']
+##                            [power_three, level_three, type_three] = ['exp', 2, 'electric']
                             #exit(0)
     #title, 2, fairy
     file = 'Recipe_List-Reduced_Set-3S2I.txt'
     file_object = open(file, 'r')
     recipes = file_object.readlines()
+    file_object.close()
     #print(str(recipes[14623]))
     level_one = str(level_one)
     level_two = str(level_two)
@@ -1109,6 +1110,21 @@ def Pokemon():
     print(p_one)
     print(p_two)
     print(p_three)
+    if power_one == 'egg':
+        ponon = power_one
+        pontw = power_one
+        ponth = power_one
+    else:
+        ponon = power_one + ', ' + '1' + ', ' + type_one
+        pontw = power_one + ', ' + '2' + ', ' + type_one
+        ponth = power_one + ', ' + '3' + ', ' + type_one
+    ptwon = power_two + ', ' + '1' + ', ' + type_two
+    ptwtw = power_two + ', ' + '2' + ', ' + type_two
+    ptwth = power_two + ', ' + '3' + ', ' + type_two
+    pthon = power_three + ', ' + '1' + ', ' + type_three
+    pthtw = power_three + ', ' + '2' + ', ' + type_three
+    pthth = power_three + ', ' + '3' + ', ' + type_three
+    
     found_line = False
     for line in recipes:
         if str(line).__contains__(p_one):
@@ -1116,233 +1132,36 @@ def Pokemon():
                 if str(line).__contains__(p_three):
                     print(line)
                     found_line = True
+    if True:
+        file = 'Recipe_List-Not_Full.txt'
+        file_object = open(file, 'r')
+        recipess = file_object.readlines()
+        file_object.close()
+        for line in recipess:
+            if str(line).__contains__(p_two):
+                if str(line).__contains__(p_two):
+                    if str(line).__contains__(p_three):
+                        print(line)
+                        found_line = True
+    if not found_line: #ok you aint getting exactly what you want but heres at least the same powers
+        for line in recipes:
+            if str(line).__contains__(ponon) or str(line).__contains__(pontw) or str(line).__contains__(ponth):
+                if str(line).__contains__(ptwon) or str(line).__contains__(ptwtw) or str(line).__contains__(ptwth):
+                    if str(line).__contains__(pthon) or str(line).__contains__(pthth) or str(line).__contains__(pthtw):
+                        print(line)
+        for line in recipess:
+            if str(line).__contains__(ponon) or str(line).__contains__(pontw) or str(line).__contains__(ponth):
+                if str(line).__contains__(ptwon) or str(line).__contains__(ptwtw) or str(line).__contains__(ptwth):
+                    if str(line).__contains__(pthon) or str(line).__contains__(pthth) or str(line).__contains__(pthtw):
+                        print(line)
+    
     if not found_line:
         print('That power combo has not been logged in the recipe list.  Please remember tho that these are original recipes')
         print('Consult the ingame recipies list for it might have what you are looking for.')
     exit(0)
                 
         
-######    ##############
-######    #testing
-######    print(ingredients[34])
-####    recipe = build_sandwich(ingredients[0],
-####                            seasonings[0],
-####                            seasonings[1],
-####                            seasonings[0],
-####                            seasonings[1], #sweet
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[7], #rice
-####                            ingredients[34]) #avocado
-####    recipe = build_sandwich(ingredients[0],
-####                            seasonings[0],
-####                            seasonings[0],
-####                            seasonings[21], #chili
-####                            seasonings[1], #sweet
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[28]) #chorizo
-####    recipe = build_sandwich(ingredients[0],
-####                            seasonings[0],
-####                            seasonings[0],
-####                            seasonings[0], #chili
-####                            seasonings[1], #sweet
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[2]) #watercress
-####    recipe = build_sandwich(ingredients[0],
-####                            seasonings[0],
-####                            seasonings[0],
-####                            seasonings[2], #sour
-####                            seasonings[1], #sweet
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[1]) #yellow pep
-####    recipe = build_sandwich(ingredients[0],
-####                            seasonings[0],
-####                            seasonings[0],
-####                            seasonings[0],
-####                            seasonings[1], #sweet
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[35], #apple
-####                            ingredients[31]) #basil
-####    recipe = build_sandwich(ingredients[0],
-####                            seasonings[0],
-####                            seasonings[0],
-####                            seasonings[0],
-####                            seasonings[1], #sweet
-####                            ingredients[35], #apple
-####                            ingredients[35], #apple
-####                            ingredients[35], #apple
-####                            ingredients[35], #apple
-####                            ingredients[35]) #apple
-####    recipe = build_sandwich(ingredients[0],
-####                            seasonings[4],
-####                            seasonings[3],
-####                            seasonings[0],
-####                            seasonings[2], #sweet
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[0],
-####                            ingredients[35]) #apple
-##    import random
-##    a = random.randint(0, 5)
-##    recipe = build_sandwich(ingredients[0],
-##                            seasonings[0],
-##                            seasonings[0+a],
-##                            seasonings[0],
-##                            seasonings[1+a], #sweet
-##                            ingredients[23], #ham
-##                            ingredients[18+a], #klawf
-##                            ingredients[14], #pickle
-##                            ingredients[2+a], #watercress
-##                            ingredients[35]) #apple
-##    tests = [
-##        build_sandwich(ingredients[0],
-##                            ingredients[1],
-##                            ingredients[2],
-##                            ingredients[3],
-##                            ingredients[4],
-##                            ingredients[5],
-##                            seasonings[0],
-##                            seasonings[1],
-##                            seasonings[2],
-##                            seasonings[3]),
-##        build_sandwich(ingredients[6],
-##                            ingredients[7],
-##                            ingredients[8],
-##                            ingredients[9],
-##                            ingredients[10],
-##                            ingredients[11],
-##                            seasonings[4],
-##                            seasonings[5],
-##                            seasonings[6],
-##                            seasonings[7]),
-##        build_sandwich(ingredients[12],
-##                            ingredients[13],
-##                            ingredients[14],
-##                            ingredients[15],
-##                            ingredients[16],
-##                            ingredients[17],
-##                            seasonings[8],
-##                            seasonings[10],
-##                            seasonings[11],
-##                            seasonings[9]),
-##        build_sandwich(ingredients[18],
-##                            ingredients[19],
-##                            ingredients[20],
-##                            ingredients[21],
-##                            ingredients[22],
-##                            ingredients[23],
-##                            seasonings[12],
-##                            seasonings[13],
-##                            seasonings[14],
-##                            seasonings[15]),
-##        build_sandwich(ingredients[24],
-##                            ingredients[25],
-##                            ingredients[26],
-##                            ingredients[27],
-##                            ingredients[28],
-##                            ingredients[29],
-##                            seasonings[16],
-##                            seasonings[17],
-##                            seasonings[18],
-##                            seasonings[19]),
-##        build_sandwich(ingredients[30],
-##                            ingredients[31],
-##                            ingredients[32],
-##                            ingredients[33],
-##                            ingredients[34],
-##                            ingredients[35],
-##                            seasonings[20],
-##                            seasonings[21],
-##                            seasonings[22],
-##                            seasonings[8])
-##        ]
-##    print(len(ingredients))
-##    print(len(seasonings))
-##    for recipe in tests:
-##        if valid_sandwich(recipe):
-##            the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
-##            combo_of_ingredients_and_seasonings = []
-##            for thing in recipe:
-##                if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
-##                    pass
-##                else:
-##                    combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
-##                if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
-##                    pass
-##                else:
-##                    combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
-##            combo_of_ingredients_and_seasonings.sort()
-##            recipe_dict = {
-##                'Meal Powers': the_list_of_powers_from_custom_sandwiches,
-##                'Recipe': combo_of_ingredients_and_seasonings
-##                }
-##            print()
-##            print(recipe_dict)
-##    exit(0)
-    #aight so your boi dont got a super computer
-    minus_herba_list = [0]
-    for i in range(6,len(seasonings)):
-        minus_herba_list.append(i)
-    for ingredient_one_index in range(0, 1):
-        for ingredient_five_index in range(0, 1):
-            for ingredient_three_index in range(0, 1):
-                for seasoning_three_index in range(0, 1):
-                    #will use shorter list
-                    for seasoning_two_index in minus_herba_list:
-                        for ingredient_two_index in range(0, 1): #was planning on 3 each but I think Ill try 2 and 3
-                            for seasoning_four_index in range(0, len(seasonings)):
-                                for ingredient_four_index in range(0, len(ingredients)):
-                                    for seasoning_one_index in range(1, len(seasonings)):
-                                        for ingredient_six_index in range(1, len(ingredients)):
-                                            recipe = build_sandwich(ingredients[ingredient_one_index],
-                                                                    seasonings[seasoning_one_index],
-                                                                    seasonings[seasoning_two_index],
-                                                                    seasonings[seasoning_three_index],
-                                                                    seasonings[seasoning_four_index],
-                                                                    ingredients[ingredient_two_index],
-                                                                    ingredients[ingredient_three_index],
-                                                                    ingredients[ingredient_four_index],
-                                                                    ingredients[ingredient_five_index],
-                                                                    ingredients[ingredient_six_index])
-                                            if valid_sandwich(recipe):
-                                                combo_of_ingredients_and_seasonings = []
-                                                for thing in recipe:
-                                                    if (thing.get('seasoning', '') == '') or (thing.get('seasoning', '') == 'null'):
-                                                        pass
-                                                    else:
-                                                        combo_of_ingredients_and_seasonings.append(thing.get('seasoning', ''))
-                                                    if (thing.get('ingredient', '') == '') or (thing.get('ingredient', '') == 'null'):
-                                                        pass
-                                                    else:
-                                                        combo_of_ingredients_and_seasonings.append(thing.get('ingredient', ''))
-                                                combo_of_ingredients_and_seasonings.sort()
-
-                                                if combo_of_ingredients_and_seasonings in list_of_found_recipes:
-                                                    pass#print('Combo found already')
-                                                else:
-                                                    the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
-                                                    recipe_dict = {
-                                                        'Meal Powers': the_list_of_powers_from_custom_sandwiches,
-                                                        'Recipe': combo_of_ingredients_and_seasonings
-                                                        }
-                                                    #print(recipe_dict)
-                                                    update_recipe_dex(recipe_dict)
-                                                    list_of_found_recipes.append(combo_of_ingredients_and_seasonings)
-                                            else:
-                                                pass#print('Not a valid sandwich')
+######    #######
     return 11037
 
 
