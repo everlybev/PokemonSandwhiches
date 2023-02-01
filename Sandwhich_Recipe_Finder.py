@@ -1145,6 +1145,17 @@ def Pokemon():
                     if str(line).__contains__(p_three):
                         print(line)
                         found_line = True
+    if not found_line:
+        file = 'Recipe_List-Reduced_Set-3S2I.txt'
+        file_object = open(file, 'r')
+        recipess = file_object.readlines()
+        file_object.close()
+        for line in recipess:
+            if str(line).__contains__(p_one):
+                if str(line).__contains__(p_two):
+                    if str(line).__contains__(p_three):
+                        print(line)
+                        found_line = True
     if not found_line: #ok you aint getting exactly what you want but heres at least the same powers
         for line in recipes:
             if str(line).__contains__(ponon) or str(line).__contains__(pontw) or str(line).__contains__(ponth):
