@@ -987,7 +987,7 @@ def update_recipe_dex(dictionary):
     info = info.replace("'", '')
     info = info.replace(", ]", ']')
     #, ' '
-    filename = 'Recipe_List-Reduced_Set.txt'
+    filename = 'Recipe_List-3_Ingredient_Sparkling.txt'
     if exists(filename):
         pass
     else:
@@ -1223,11 +1223,13 @@ def Pokemon():
             for ingredient_three_index in range(0, 1):
                 for seasoning_three_index in range(0, 1):
                     #will use shorter list
-                    for seasoning_two_index in minus_herba_list:
-                        for ingredient_two_index in range(0, 1): #was planning on 3 each but I think Ill try 2 and 3
-                            for seasoning_four_index in range(0, len(seasonings)):
+                    for seasoning_two_index in range(0, 1):# minus_herba_list:
+                        for ingredient_two_index in range(0, len(ingredients)): #was planning on 3 each but I think Ill try 2 and 3
+                            #for seasoning_four_index in range(0, len(seasonings)):
+                            for seasoning_four_index in range(1, 6):
                                 for ingredient_four_index in range(0, len(ingredients)):
-                                    for seasoning_one_index in range(1, len(seasonings)):
+                                    #for seasoning_one_index in range(1, len(seasonings)):
+                                    for seasoning_one_index in range(1, 6):
                                         for ingredient_six_index in range(1, len(ingredients)):
                                             recipe = build_sandwich(ingredients[ingredient_one_index],
                                                                     seasonings[seasoning_one_index],
@@ -1270,7 +1272,7 @@ def Pokemon():
 
         
 if __name__ == '__main__':
-    Pokemon()
+    print(Pokemon())
 
 
 
