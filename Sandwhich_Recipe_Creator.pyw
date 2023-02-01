@@ -987,7 +987,7 @@ def update_recipe_dex(dictionary):
     info = info.replace("'", '')
     info = info.replace(", ]", ']')
     #, ' '
-    filename = 'Recipe_List-3_Ingredient_Sparkling.txt'
+    filename = 'Recipe_List-Most_Complete.txt'
     if exists(filename):
         pass
     else:
@@ -1191,8 +1191,8 @@ def Pokemon():
 ##                            seasonings[22],
 ##                            seasonings[8])
 ##        ]
-##    print(len(ingredients))
-##    print(len(seasonings))
+    print(len(ingredients))
+    print(len(seasonings))
 ##    for recipe in tests:
 ##        if valid_sandwich(recipe):
 ##            the_list_of_powers_from_custom_sandwiches = determine_powers(recipe)
@@ -1216,20 +1216,29 @@ def Pokemon():
 ##    exit(0)
     #aight so your boi dont got a super computer
     minus_herba_list = [0]
+    minus_multi_piece_list = [0]
     for i in range(6,len(seasonings)):
         minus_herba_list.append(i)
+    for i in range(1, len(ingredients)):
+        if ingredients[i].get('pieces') > 1:
+            pass
+        else:
+            minus_multi_piece_list.append(i)
+    print(len(minus_herba_list))
+    print(len(minus_multi_piece_list))
+    #exit(0)
     for ingredient_one_index in range(0, 1):
-        for ingredient_five_index in range(0, 1):
-            for ingredient_three_index in range(0, 1):
-                for seasoning_three_index in range(0, 1):
-                    #will use shorter list
-                    for seasoning_two_index in range(0, 1):# minus_herba_list:
+        for ingredient_five_index in minus_multi_piece_list:#range(0, 1):
+            for seasoning_three_index in minus_herba_list:
+                #will use shorter list
+                for seasoning_two_index in minus_herba_list:# minus_herba_list:
+                    for ingredient_three_index in range(0, len(ingredients)):
                         for ingredient_two_index in range(0, len(ingredients)): #was planning on 3 each but I think Ill try 2 and 3
                             #for seasoning_four_index in range(0, len(seasonings)):
-                            for seasoning_four_index in range(1, 6):
-                                for ingredient_four_index in range(0, len(ingredients)):
+                            for ingredient_four_index in range(0, len(ingredients)):
+                                for seasoning_four_index in minus_herba_list:
                                     #for seasoning_one_index in range(1, len(seasonings)):
-                                    for seasoning_one_index in range(1, 6):
+                                    for seasoning_one_index in range(1, len(minus_herba_list)):
                                         for ingredient_six_index in range(1, len(ingredients)):
                                             recipe = build_sandwich(ingredients[ingredient_one_index],
                                                                     seasonings[seasoning_one_index],
