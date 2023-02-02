@@ -1238,7 +1238,7 @@ def Pokemon():
                             for ingredient_four_index in range(0, len(ingredients)):
                                 for seasoning_four_index in minus_herba_list:
                                     #for seasoning_one_index in range(1, len(seasonings)):
-                                    for seasoning_one_index in range(1, len(minus_herba_list)):
+                                    for seasoning_one_index in range(1, len(seasonings)):#range(1, len(minus_herba_list)):
                                         for ingredient_six_index in range(1, len(ingredients)):
                                             recipe = build_sandwich(ingredients[ingredient_one_index],
                                                                     seasonings[seasoning_one_index],
